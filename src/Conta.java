@@ -1,7 +1,7 @@
 
 public class Conta {
 	private String numero;
-	private float saldo;
+	private double saldo;
 	
 	// CONSTRUTORES
 	public Conta (String numero, float saldo)
@@ -17,14 +17,14 @@ public class Conta {
 
 	// GETS
 	public String getNumero() {	return numero; }
-	public float getSaldo() { return saldo; }
+	public double getSaldo() { return saldo; }
 	
 	// CREDITAR E DEBITAR
-	public void creditar (float valor) { this.saldo += valor; }
-	public void debitar (float valor) { this.saldo -= valor; }
+	public void creditar (double valor) { this.saldo += valor; }
+	public void debitar (double valor) { this.saldo -= valor; }
 	
 	// TRANSFERÊNCIA
-	public void transferir (Conta destino, float valor)
+	public void transferir (Conta destino, double valor)
 	{
 		this.debitar(valor);
 		destino.creditar(valor);
