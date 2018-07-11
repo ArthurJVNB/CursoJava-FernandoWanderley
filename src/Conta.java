@@ -12,7 +12,7 @@ public class Conta {
 	public Conta (String numero)
 	{
 		this.numero = numero;
-		this.saldo = 0;
+		this.saldo = 0f;
 	}
 
 	// GETS
@@ -23,8 +23,10 @@ public class Conta {
 	public void creditar (float valor) { this.saldo += valor; }
 	public void debitar (float valor) { this.saldo -= valor; }
 	
-	
+	// TRANSFERÊNCIA
+	public void transferir (Conta destino, float valor)
+	{
+		this.debitar(valor);
+		destino.creditar(valor);
+	}
 }
-
-/*
-*/
