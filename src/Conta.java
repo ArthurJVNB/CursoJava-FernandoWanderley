@@ -4,7 +4,7 @@ public class Conta {
 	private double saldo;
 	
 	// CONSTRUTORES
-	public Conta (String numero, float saldo)
+	public Conta (String numero, double saldo)
 	{
 		this.numero = numero;
 		this.saldo = saldo;
