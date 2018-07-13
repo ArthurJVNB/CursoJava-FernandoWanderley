@@ -1,4 +1,3 @@
-import javax.crypto.ExemptionMechanismSpi;
 
 public class Teste {
 	public static void main(String[] args) {
@@ -14,12 +13,12 @@ public class Teste {
 		mostrarSaldo(repoConta, "567");
 		mostrarSaldo(repoConta, "678");
 		
-		incrementarJurosNaPoupanca(repoConta, "123", 10);
-		incrementarJurosNaPoupanca(repoConta, "234", 10);
-		incrementarJurosNaPoupanca(repoConta, "345", 10);
-		incrementarJurosNaPoupanca(repoConta, "456", 10);
-		incrementarJurosNaPoupanca(repoConta, "567", 10);
-		incrementarJurosNaPoupanca(repoConta, "678", 10);
+		incrementarJurosNaPoupanca(repoConta, "123", 1);
+		incrementarJurosNaPoupanca(repoConta, "234", 1);
+		incrementarJurosNaPoupanca(repoConta, "345", 1);
+		incrementarJurosNaPoupanca(repoConta, "456", 1);
+		incrementarJurosNaPoupanca(repoConta, "567", 1);
+		incrementarJurosNaPoupanca(repoConta, "678", 1);
 		
 		System.out.println("\nRENDEU JUROS PARA POUPANÇAS:");
 		mostrarSaldo(repoConta, "123");
@@ -39,9 +38,17 @@ public class Teste {
 			
 			// TODO String tipoConta é temporário
 			String tipoConta = "";
+			if (conta instanceof Poupanca)
+			{
+				tipoConta = "Poupança";
+			}
+			else if (conta instanceof Conta)
+			{
+				tipoConta = "Padrão";
+			}
+			// TODO fim do temporário
 			
-			
-			System.out.println("Conta " + conta.getNumero() + ": R$ " + conta.getSaldo());
+			System.out.println("Conta " + tipoConta + " " + conta.getNumero() + ": R$ " + conta.getSaldo());
 		}
 	}
 
