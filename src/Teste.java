@@ -1,6 +1,13 @@
 
 public class Teste {
 	public static void main(String[] args) {
+		
+		testarTransferencias();
+		
+	}
+	
+	public static void testarTransferencias()
+	{
 		Conta c1 = new Conta("123", 10);
 		Conta c2 = new Conta("456", 20);
 		
