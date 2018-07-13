@@ -14,6 +14,6 @@ public class Poupanca extends Conta {
 	public void renderJuros(double taxa)
 	{
 		double saldoAtual = getSaldo();
-		creditar(saldoAtual * taxa);
+		creditar(saldoAtual * (taxa/100));
 	}
 }
