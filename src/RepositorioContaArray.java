@@ -48,7 +48,7 @@ public class RepositorioContaArray {
 		
 		for (int i = 0; i < contas.length; i++)
 		{
-			if (contas[i].getNumero().equals(numeroConta))
+			if (contas[i] != null && contas[i].getNumero().equals(numeroConta))
 			{
 				resultado = i;
 			}
