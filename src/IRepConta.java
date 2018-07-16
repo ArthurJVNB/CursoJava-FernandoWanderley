@@ -1,5 +1,5 @@
 
-public interface IRepositorioConta {
+public interface IRepConta {
 
 	void inserir(Conta conta);
 	
