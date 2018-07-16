@@ -1,9 +1,9 @@
 
-public class RepositorioContaArray implements IRepositorioConta {
+public class RepositorioContasArray implements IRepositorioContas {
 	private Conta[] contas;
 	private int indice;
 	
-	public RepositorioContaArray() {
+	public RepositorioContasArray() {
 		contas = new Conta[100];
 		indice = 0;
 	}
