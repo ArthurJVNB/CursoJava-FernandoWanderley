@@ -2,7 +2,7 @@
 public class Teste {
 	public static void main(String[] args) {
 		
-		RepositorioContaArray repoConta = new RepositorioContaArray();
+		RepositorioContasArray repoConta = new RepositorioContasArray();
 		
 		criarNObjetos(repoConta, 6);
 		
@@ -30,7 +30,7 @@ public class Teste {
 		
 	}
 	
-	private static void mostrarSaldo(RepositorioContaArray repoConta, String numeroConta)
+	private static void mostrarSaldo(RepositorioContasArray repoConta, String numeroConta)
 	{
 		if (repoConta.existe(numeroConta))
 		{
@@ -52,7 +52,7 @@ public class Teste {
 		}
 	}
 
-	public static void criarNObjetos(RepositorioContaArray repositorioConta, int quantidade)
+	public static void criarNObjetos(RepositorioContasArray repositorioConta, int quantidade)
 	{
 		Conta conta = new Conta("123", 5);
 		repositorioConta.inserir(conta);
@@ -73,7 +73,7 @@ public class Teste {
 		repositorioConta.inserir(conta);
 	}
 	
-	public static void incrementarJurosNaPoupanca(RepositorioContaArray repositorioContaArray, String numero, double taxa)
+	public static void incrementarJurosNaPoupanca(RepositorioContasArray repositorioContaArray, String numero, double taxa)
 	{
 		if (repositorioContaArray.existe(numero))
 		{
