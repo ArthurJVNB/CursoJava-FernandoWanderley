@@ -1,5 +1,5 @@
 
-public class RepositorioContaArray {
+public class RepositorioContaArray implements IRepositorioConta {
 	private Conta[] contas;
 	private int indice;
 	
@@ -7,7 +7,8 @@ public class RepositorioContaArray {
 		contas = new Conta[100];
 		indice = 0;
 	}
-	
+
+	@Override
 	public void inserir(Conta conta)
 	{
 		if (!existe(conta.getNumero()))
@@ -16,7 +17,8 @@ public class RepositorioContaArray {
 			indice++;
 		}
 	}
-	
+
+	@Override
 	public void atualizar(Conta conta)
 	{
 		if (existe(conta.getNumero()))
@@ -25,7 +27,8 @@ public class RepositorioContaArray {
 			contas[resultadoIndice] = conta;
 		}
 	}
-	
+
+	@Override
 	public void remover(Conta conta)
 	{
 		if (existe(conta.getNumero()))
@@ -56,7 +59,8 @@ public class RepositorioContaArray {
 		
 		return resultado;
 	}
-	
+
+	@Override
 	public boolean existe(String numeroConta)
 	{
 		boolean resultado = false;
@@ -69,6 +73,7 @@ public class RepositorioContaArray {
 		return resultado;
 	}
 	
+	@Override
 	public Conta procurar(String numeroConta)
 	{
 		Conta resultadoConta = null;
