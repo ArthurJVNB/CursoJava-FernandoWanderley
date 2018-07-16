@@ -1,10 +1,10 @@
 
 public interface IRepositorioContas {
 
-	void inserir(Conta conta);	
-	void atualizar(Conta conta);
-	void remover(Conta conta);
+	void inserir(ContaAbstrata conta);	
+	void atualizar(ContaAbstrata conta);
+	void remover(ContaAbstrata conta);
 	boolean existe(String numeroConta);
-	Conta procurar(String numeroConta);
+	ContaAbstrata procurar(String numeroConta);
 
 }
