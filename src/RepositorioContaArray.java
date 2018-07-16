@@ -1,5 +1,5 @@
 
-public class RepositorioContaArray implements IRepositorioConta {
+public class RepositorioContaArray implements IRepConta {
 	private Conta[] contas;
 	private int indice;
 	
