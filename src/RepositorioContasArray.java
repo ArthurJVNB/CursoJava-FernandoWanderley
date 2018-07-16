@@ -1,15 +1,15 @@
 
 public class RepositorioContasArray implements IRepositorioContas {
-	private Conta[] contas;
+	private ContaAbstrata[] contas;
 	private int indice;
 	
 	public RepositorioContasArray() {
-		contas = new Conta[100];
+		contas = new ContaAbstrata[100];
 		indice = 0;
 	}
 
 	@Override
-	public void inserir(Conta conta)
+	public void inserir(ContaAbstrata conta)
 	{
 		if (!existe(conta.getNumero()))
 		{
@@ -19,7 +19,7 @@ public class RepositorioContasArray implements IRepositorioContas {
 	}
 
 	@Override
-	public void atualizar(Conta conta)
+	public void atualizar(ContaAbstrata conta)
 	{
 		if (existe(conta.getNumero()))
 		{
@@ -29,7 +29,7 @@ public class RepositorioContasArray implements IRepositorioContas {
 	}
 
 	@Override
-	public void remover(Conta conta)
+	public void remover(ContaAbstrata conta)
 	{
 		if (existe(conta.getNumero()))
 		{	
@@ -74,9 +74,9 @@ public class RepositorioContasArray implements IRepositorioContas {
 	}
 	
 	@Override
-	public Conta procurar(String numeroConta)
+	public ContaAbstrata procurar(String numeroConta)
 	{
-		Conta resultadoConta = null;
+		ContaAbstrata resultadoConta = null;
 		
 		if (existe(numeroConta))
 		{
