@@ -10,7 +10,7 @@ package fwinternetbanking;
  * @author Euller
  */
 public interface IRepConta {
-   void inserir(ContaAbstrata conta);
+   public void inserir(ContaAbstrata conta);
    public boolean existe(String num);
    public void atualizar(ContaAbstrata c);
    public ContaAbstrata procurar(String num);
