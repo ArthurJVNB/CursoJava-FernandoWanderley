@@ -5,23 +5,22 @@
  */
 package fwinternetbanking;
 
-import fwinternetbanking.Cliente;
-
 /**
  *
  * @author Euller
  */
-public class RepositorioClienteArray {
+public class RepositorioClienteArray implements IRepCliente {
 
-    private Cliente[] clientes;
+    private static Cliente[] clientes;
     private int indice;
-    private final static int tamCache = 100;
+    private final static int TAM_CACHE = 100;
 
     public RepositorioClienteArray() {
         indice = 0;
-        clientes = new Cliente[tamCache];
+        clientes = new Cliente[TAM_CACHE];
     }
 
+    @Override
     public void inserir(Cliente c) {
         clientes[indice] = c;
         indice++;
@@ -41,6 +40,7 @@ public class RepositorioClienteArray {
         return ind;
     }
 
+    @Override
     public boolean existe(String cpf) {
 
         boolean resp = false;
@@ -51,6 +51,7 @@ public class RepositorioClienteArray {
         return resp;
     }
 
+    @Override
     public void atualizar(Cliente c) {
         
         int i = procurarIndice(c.getCpf());
@@ -61,6 +62,7 @@ public class RepositorioClienteArray {
         }
     }
 
+    @Override
     public Cliente procurar(String cpf) {
 
         Cliente c = null;
@@ -73,6 +75,7 @@ public class RepositorioClienteArray {
         return c;
     }
 
+    @Override
     public void remover(String num) {
         if (existe(num)) {
             int i = this.procurarIndice(num);

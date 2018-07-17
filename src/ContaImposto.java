@@ -9,18 +9,14 @@ package fwinternetbanking;
  *
  * @author Euller
  */
-public class Conta extends ContaAbstrata {
-
-    public Conta(double saldo, String numero) {
+public class ContaImposto extends ContaAbstrata {
+    
+    public ContaImposto(double saldo, String numero){
         super(saldo, numero);
     }
-
+    
     @Override
-    public void debitar(double valor) {
-        if( saldo < valor){
-            System.out.println("Saldo insuficiente");
-        }else{
-            this.saldo -= valor;
-        }
+    public void debitar (double valor){
+        this.saldo -= valor * 1.01;
     }
 }
