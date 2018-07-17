@@ -10,7 +10,7 @@ package fwinternetbanking;
  * @author Euller
  */
 public interface IRepCliente {
-   void inserir(Cliente cliente);
+   public void inserir(Cliente cliente);
    public boolean existe(String cpf);
    public void atualizar(Cliente cliente);
    public Cliente procurar(String cpf);
