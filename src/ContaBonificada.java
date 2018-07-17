@@ -13,8 +13,8 @@ public class ContaBonificada extends Conta {
     
     private double bonus;
     
-    public ContaBonificada(float saldo, String numero) {
-        super(saldo, numero);
+    public ContaBonificada(String numero, double saldo) {
+        super(numero, saldo);
     }
 
     public void renderBonus(double bonus){
