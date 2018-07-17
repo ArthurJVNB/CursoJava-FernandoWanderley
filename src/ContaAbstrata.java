@@ -2,12 +2,14 @@
 public abstract class ContaAbstrata {
 	private String numero;
 	private double saldo;
+	private Cliente cliente;
 	
 	// CONSTRUTORES
-	public ContaAbstrata (String numero, double saldo)
+	public ContaAbstrata (String numero, double saldo, Cliente cliente)
 	{
 		this.numero = numero;
 		this.saldo = saldo;
+		this.cliente = cliente;
 	}
 	public ContaAbstrata (String numero)
 	{
@@ -26,7 +28,7 @@ public abstract class ContaAbstrata {
 	public void creditar (double valor) { this.saldo += valor; }
 	public abstract void debitar (double valor);
 	
-	// TRANSFERÊNCIA
+	// TRANSFERÃŠNCIA
 	public void transferir (ContaAbstrata destino, double valor)
 	{
 		this.debitar(valor);
