@@ -11,11 +11,8 @@ public class RepositorioContasArray implements IRepositorioContas {
 	@Override
 	public void inserir(ContaAbstrata conta)
 	{
-		if (!existe(conta.getNumero()))
-		{
-			contas[indice] = conta;
-			indice++;
-		}
+		contas[indice] = conta;
+		indice++;
 	}
 
 	@Override
