@@ -19,12 +19,12 @@ public class Cliente {
     private String nome;
     private TipoCliente tipo;
     private Endereco endereco;
-    private RepositorioClienteArray repos;
+    
 
-    public Cliente(String nome, String cpf, Endereco endereco, TipoCliente tipo) {
+    public Cliente(String nome, String cpf, Endereco endereco, TipoCliente tipo, String rua, String bairro, String cidade, String estado, String numero, String complemento) {
         this.nome = nome;
         this.cpf = cpf;
-        this.endereco = endereco;
+        this.endereco = new Endereco(rua, bairro, cidade, estado, numero, complemento);
         this.tipo = tipo;
     }
 
