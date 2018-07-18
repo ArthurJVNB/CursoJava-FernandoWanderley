@@ -2,12 +2,8 @@
 public class Conta extends ContaAbstrata {
 	
 	// CONSTRUTORES
-	public Conta(String numero, double saldo) {
-		super(numero, saldo);
-	}
-	
-	public Conta(String numero) {
-		super(numero);
+	public Conta(String numero, double saldo, Cliente cliente) {
+		super(numero, saldo, cliente);
 	}
 	
 	@Override

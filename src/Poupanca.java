@@ -2,13 +2,8 @@
 public class Poupanca extends Conta {
 
 	// CONSTRUCTOR 1
-	public Poupanca(String numero, double saldo) {
-		super(numero, saldo);
-	}
-	
-	// CONSTRUCTOR 2
-	public Poupanca(String numero) {
-		super(numero);
+	public Poupanca(String numero, double saldo, Cliente cliente) {
+		super(numero, saldo, cliente);
 	}
 	
 	public void renderJuros(double taxa)
