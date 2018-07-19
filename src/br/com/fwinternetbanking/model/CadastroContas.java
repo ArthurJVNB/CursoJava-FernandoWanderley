@@ -1,3 +1,5 @@
+package br.com.fwinternetbanking.model;
+
 
 public class CadastroContas {
 	private IRepositorioContas contas;
@@ -31,7 +33,7 @@ public class CadastroContas {
 		}
 		else
 		{
-			System.out.println("Erro: Conta não existe");	// TODO exceção
+			System.out.println("Erro: Conta nï¿½o existe");	// TODO exceï¿½ï¿½o
 		}
 		
 		return contas.procurar(numeroConta);
@@ -56,12 +58,12 @@ public class CadastroContas {
 			}
 			else
 			{
-				System.out.println("Erro: Conta inexistente"); // TODO exceção
+				System.out.println("Erro: Conta inexistente"); // TODO exceï¿½ï¿½o
 			}
 		}
 		else
 		{
-			System.out.println("Erro: Valor inválido");	// TODO exceção
+			System.out.println("Erro: Valor invï¿½lido");	// TODO exceï¿½ï¿½o
 		}
 	}
 	
@@ -75,7 +77,7 @@ public class CadastroContas {
 		}
 		else
 		{
-			System.out.println();	// TODO exceção
+			System.out.println();	// TODO exceï¿½ï¿½o
 		}
 	}
 	

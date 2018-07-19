@@ -1,3 +1,5 @@
+package br.com.fwinternetbanking.model;
+
 
 public interface IRepositorioContas {
 

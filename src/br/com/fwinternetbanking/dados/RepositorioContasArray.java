@@ -1,3 +1,8 @@
+package br.com.fwinternetbanking.dados;
+
+import br.com.fwinternetbanking.model.IRepositorioContas;
+import br.com.fwinternetbanking.model.ContaAbstrata;
+
 
 public class RepositorioContasArray implements IRepositorioContas {
 	private ContaAbstrata[] contas;
@@ -30,11 +35,11 @@ public class RepositorioContasArray implements IRepositorioContas {
 	{
 		if (existe(conta.getNumero()))
 		{	
-			int resultadoIndice = procurarIndice(conta.getNumero()); // o índice da conta que se quer apagar
+			int resultadoIndice = procurarIndice(conta.getNumero()); // o ï¿½ndice da conta que se quer apagar
 			
-			for (int posSeguinte = resultadoIndice+1; posSeguinte < indice; posSeguinte++) // até o ÍNDICE, pois ele está sempre à frente
+			for (int posSeguinte = resultadoIndice+1; posSeguinte < indice; posSeguinte++) // atï¿½ o ï¿½NDICE, pois ele estï¿½ sempre ï¿½ frente
 			{
-				int posAtual = posSeguinte-1;	// <<<<----- só para estudo
+				int posAtual = posSeguinte-1;	// <<<<----- sï¿½ para estudo
 				contas[posAtual] = contas[posSeguinte];
 			}
 			

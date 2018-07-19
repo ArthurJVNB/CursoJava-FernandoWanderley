@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fwinternetbanking;
+package br.com.fwinternetbanking.dados;
 
-import fwinternetbanking.Cliente;
+import br.com.fwinternetbanking.model.Cliente;
 
 /**
  *
