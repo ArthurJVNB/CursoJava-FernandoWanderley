@@ -18,7 +18,7 @@ public class RepositorioContaMap implements IRepConta{
 	@Override
 	public void inserir(ContaAbstrata conta) {
 		String key = conta.getNumero();
-		if (!contas.containsKey(key))
+		if (!contas.containsKey(key))	// pra impedir que substitua a conta que estiver numa mesma key
 		{
 			contas.put(key, conta);
 		}
@@ -27,6 +27,13 @@ public class RepositorioContaMap implements IRepConta{
 	@Override
 	public void atualizar(ContaAbstrata conta) {
 		contas.replace(conta.getNumero(), conta);
+		
+		// A diferenca para "put" eh que esse so substitui o valor naquela chave se ja tiver
+		// ALGUM valor na chave que foi passada (nao se preocupa qual o valor - so quer
+		// saber se tem algum valor naquela chave).
+		
+		// O "put" coloca naquela chave o valor que foi passado, independente se tinha algo
+		// antes ou nao.
 	}
 
 	@Override
