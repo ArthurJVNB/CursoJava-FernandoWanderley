@@ -1,7 +1,7 @@
 package br.com.fwinternetbanking.model;
 
 
-public interface IRepositorioContas {
+public interface IRepConta {
 
 	void inserir(ContaAbstrata conta);	
 	void atualizar(ContaAbstrata conta);
