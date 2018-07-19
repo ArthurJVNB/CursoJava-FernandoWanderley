@@ -5,7 +5,7 @@ import java.util.HashMap;
 import br.com.fwinternetbanking.model.ContaAbstrata;
 import br.com.fwinternetbanking.model.IRepConta;
 
-public class RepositorioContaMap implements IRepConta{
+public class RepositorioContaMap implements IRepConta {
 	private HashMap<String, ContaAbstrata> contas;
 	private static int CAPACIDADE_INICIAL = 30;
 	
