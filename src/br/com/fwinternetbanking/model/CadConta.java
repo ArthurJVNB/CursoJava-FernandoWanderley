@@ -1,6 +1,6 @@
 package br.com.fwinternetbanking.model;
 
-public class CadConta extends CadGen{
+public class CadConta extends CadGen<ContaAbstrata> {
 
     private IRepConta contas;
 
@@ -10,29 +10,25 @@ public class CadConta extends CadGen{
     }
 
     // Inserir
+    @Override
     public void inserir(ContaAbstrata conta) {
         contas.inserir(conta);
     }
 
     // Remover
+    @Override
     public void remover(String num) {
         contas.remover(num);
     }
 
     // Consultar
+    @Override
     public ContaAbstrata consultar(String numeroConta) {
-        ContaAbstrata conta = null;
-
-        if (contas.existe(numeroConta)) {
-            conta = contas.procurar(numeroConta);
-        } else {
-            System.out.println("Erro: Conta n�o existe");	// TODO exce��o
-        }
-
         return contas.procurar(numeroConta);
     }
 
     // Atualizar
+    @Override
     public void atualizar(ContaAbstrata conta) {
         contas.atualizar(conta);
     }
