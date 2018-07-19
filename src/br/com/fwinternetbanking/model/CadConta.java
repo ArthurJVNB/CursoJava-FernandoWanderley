@@ -5,7 +5,7 @@ public class CadConta {
 	private IRepConta contas;
 
 	// CONSTRUCTOR
-	public CadastroContas(IRepConta contas)
+	public CadConta(IRepConta contas)
 	{
 		this.contas = contas;
 	}
