@@ -1,4 +1,6 @@
-package fwinternetbanking;
+package br.com.fwinternetbanking.model;
+
+
 
 /*
  * To change this license header, choose License Headers in Project Properties.

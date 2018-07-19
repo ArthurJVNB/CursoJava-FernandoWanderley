@@ -3,15 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fwinternetbanking;
+package br.com.fwinternetbanking.dados;
 
-import fwinternetbanking.Cliente;
+import br.com.fwinternetbanking.model.Cliente;
+import br.com.fwinternetbanking.model.IRepCliente;
 
 /**
  *
  * @author Euller
  */
-public class RepositorioClienteArray {
+public class RepositorioClienteArray implements IRepCliente {
 
     private Cliente[] clientes;
     private int indice;
@@ -73,9 +74,9 @@ public class RepositorioClienteArray {
         return c;
     }
 
-    public void remover(String num) {
-        if (existe(num)) {
-            int i = this.procurarIndice(num);
+    public void remover(String cpf) {
+        if (existe(cpf)) {
+            int i = this.procurarIndice(cpf);
             clientes[i] = clientes[indice - 1];
             clientes[indice - 1] = null;
             indice = indice - 1;
