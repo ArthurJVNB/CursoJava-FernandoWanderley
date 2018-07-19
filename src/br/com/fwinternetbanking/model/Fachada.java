@@ -59,7 +59,13 @@ public class Fachada {
     }
     
     public void transferir(String numOrigem, String numDestino, double valor){
-        contas
+        ContaAbstrata origem = contas.consultar(numOrigem);
+        ContaAbstrata destino = contas.consultar(numDestino);
+        
+        if (origem != null && destino != null)
+        {
+        	origem.transferir(destino, valor);
+        }
     }
     
 //    metodos de cliente
