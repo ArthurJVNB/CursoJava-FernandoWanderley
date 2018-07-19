@@ -54,7 +54,7 @@ public abstract class ContaAbstrata {
 
     @Override
     public int hashCode() {
-        // "numero" da conta � um tipo String. A classe String ja implementou o metodo "hashCode()"
+        // "numero" da conta eh um tipo String. A classe String ja implementou o metodo "hashCode()"
         return this.getNumero().hashCode();
     }
 
