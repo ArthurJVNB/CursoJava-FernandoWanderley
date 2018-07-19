@@ -40,12 +40,12 @@ public abstract class ContaAbstrata {
         destino.creditar(valor);
     }
 
-    // M�TODOS PARA O HASHMAP
+    // METODOS PARA O HASHMAP
     @Override
     public boolean equals(Object obj) {
         boolean isEqual = false;
-        if (obj instanceof ContaAbstrata) {	// se entrou aqui � porque ele � ao menos uma ContaAbstrata
-            // se o n�mero dessa conta for igual � conta do objeto que foi passado, o isEqual recebe o true dessa compara��o
+        if (obj instanceof ContaAbstrata) {	// se entrou aqui eh porque ele eh ao menos uma ContaAbstrata
+            // se o numero dessa conta for igual aa conta do objeto que foi passado, o isEqual recebe o true dessa comparacao
             isEqual = this.getNumero().equals(((ContaAbstrata) obj).getNumero());
         }
 
@@ -54,7 +54,7 @@ public abstract class ContaAbstrata {
 
     @Override
     public int hashCode() {
-        // "numero" da conta � um tipo String. A classe String j� implementou o m�todo "hashCode()"
+        // "numero" da conta � um tipo String. A classe String ja implementou o metodo "hashCode()"
         return this.getNumero().hashCode();
     }
 
