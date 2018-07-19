@@ -1,11 +1,11 @@
 package br.com.fwinternetbanking.model;
 
 
-public class CadastroContas {
-	private IRepositorioContas contas;
+public class CadConta {
+	private IRepConta contas;
 
 	// CONSTRUCTOR
-	public CadastroContas(IRepositorioContas contas)
+	public CadastroContas(IRepConta contas)
 	{
 		this.contas = contas;
 	}
