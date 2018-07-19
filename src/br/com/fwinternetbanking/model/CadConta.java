@@ -10,14 +10,14 @@ public class CadConta {
 		this.contas = contas;
 	}
 	
-	// Cadastrar
-	public void cadastrar(ContaAbstrata conta)
+	// Inserir
+	public void inserir(ContaAbstrata conta)
 	{
 		contas.inserir(conta);
 	}
 	
-	// Descadastrar
-	public void descadastrar(ContaAbstrata conta)
+	// Remover
+	public void remover(ContaAbstrata conta)
 	{
 		contas.remover(conta);
 	}
