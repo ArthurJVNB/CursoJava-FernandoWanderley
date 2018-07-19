@@ -1,6 +1,6 @@
 package br.com.fwinternetbanking.model;
 
-public class CadConta {
+public class CadConta extends CadGen{
 
     private IRepConta contas;
 
