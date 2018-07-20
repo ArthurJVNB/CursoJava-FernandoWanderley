@@ -21,6 +21,10 @@ public abstract class ContaAbstrata {
     public double getSaldo() {
         return saldo;
     }
+    
+    public Cliente getCliente() {
+    	return cliente;
+    }
 
     // SETS
     protected void setSaldo(double valor) {
