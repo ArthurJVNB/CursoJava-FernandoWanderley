@@ -24,6 +24,7 @@ public class JDBCConnectionUtil {
 		}
 		
 	}
+	
 	public static Connection getConnection() throws SQLException {
 		if (connection == null || connection.isClosed()) {
 			connection = DriverManager.getConnection(url,user,pass);
@@ -35,20 +36,24 @@ public class JDBCConnectionUtil {
 		getConnection();
 		connection.setAutoCommit(false);
 	}
+	
 	public static void createSavePoint() throws SQLException {
 		getConnection();
 		connection.setSavepoint();
 	}
+	
 	public static void commitTransaction() throws SQLException {
 		getConnection();
 		connection.commit();
 		connection.setAutoCommit(true);
 	}
+	
 	public static void rollbackTransaction() throws SQLException {
 		getConnection();
 		connection.rollback();
 		connection.setAutoCommit(true);
 	}
+	
 	public static void rollbackTransaction(Savepoint savepoint) throws SQLException {
 		getConnection();
 		connection.rollback(savepoint);
