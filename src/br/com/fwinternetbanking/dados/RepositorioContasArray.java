@@ -1,5 +1,6 @@
 package br.com.fwinternetbanking.dados;
 
+import br.com.fwinternetbanking.model.Conta;
 import br.com.fwinternetbanking.model.ContaAbstrata;
 import br.com.fwinternetbanking.model.IRepConta;
 
@@ -28,9 +29,9 @@ public class RepositorioContasArray implements IRepConta {
     }
 
     @Override
-    public void remover(String num) {
-        if (existe(num)) {
-            int resultadoIndice = procurarIndice(num); // o �ndice da conta que se quer apagar
+    public void remover(ContaAbstrata c) {
+        if (existe(c.getNumero())) {
+            int resultadoIndice = procurarIndice(c.getNumero()); // o �ndice da conta que se quer apagar
 
             for (int posSeguinte = resultadoIndice + 1; posSeguinte < indice; posSeguinte++) // at� o �NDICE, pois ele est� sempre � frente
             {

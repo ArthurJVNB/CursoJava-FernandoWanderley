@@ -44,6 +44,7 @@ public class RepositorioClienteTreeSet implements IRepCliente {
 		for (Cliente c : clientes) {
 			if(c.getCpf().equals(cliente.getClass())) {
 				clientes.remove(c);
+				return;
 			}
 		}
 	}

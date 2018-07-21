@@ -74,9 +74,9 @@ public class RepositorioClienteArray implements IRepCliente {
         return c;
     }
 
-    public void remover(String cpf) {
-        if (existe(cpf)) {
-            int i = this.procurarIndice(cpf);
+    public void remover(Cliente c) {
+        if (existe(c.getCpf())) {
+            int i = this.procurarIndice(c.getCpf());
             clientes[i] = clientes[indice - 1];
             clientes[indice - 1] = null;
             indice = indice - 1;
