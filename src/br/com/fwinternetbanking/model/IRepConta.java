@@ -1,12 +1,13 @@
 package br.com.fwinternetbanking.model;
 
+public interface IRepConta extends IRepGen<ContaAbstrata>{
 
-public interface IRepConta {
+	public void inserir(ContaAbstrata conta);
 
-	void inserir(ContaAbstrata conta);	
-	void atualizar(ContaAbstrata conta);
-	void remover(String numeroConta);
-	boolean existe(String numeroConta);
-	ContaAbstrata procurar(String numeroConta);
+	public void atualizar(ContaAbstrata conta);
+
+	public void remover(ContaAbstrata conta);
+
+	public ContaAbstrata procurar(String numeroConta);
 
 }

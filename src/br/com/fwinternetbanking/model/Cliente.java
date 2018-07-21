@@ -11,7 +11,7 @@ package br.com.fwinternetbanking.model;
  *
  * @author Euller
  */
-public class Cliente {
+public class Cliente implements Comparable<Cliente>{
 
     public enum TipoCliente {
         Standard, Class, Vip;
@@ -57,5 +57,13 @@ public class Cliente {
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
+
+	@Override
+	public int compareTo(Cliente c) {
+		
+		return this.getCpf().compareTo(c.getCpf());
+	}
+    
+    
 
 }
