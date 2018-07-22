@@ -5,8 +5,8 @@ public class ContaImposto extends ContaAbstrata {
 
     private static double TAXA_IMPOSTO = 0.01;	// 1%
 
-    public ContaImposto(String numero, double saldo, Cliente cliente) {
-        super(numero, saldo, cliente);
+    public ContaImposto(String numero, double saldo, Cliente cliente, TipoConta tipo) {
+        super(numero, saldo, cliente, tipo);
     }
 
     @Override

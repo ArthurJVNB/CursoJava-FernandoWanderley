@@ -12,13 +12,17 @@ public class CadConta extends CadGen<ContaAbstrata> {
     // Inserir
     @Override
     public void inserir(ContaAbstrata conta) {
-        contas.inserir(conta);
+    	if(contas.procurar(conta.getNumero()) == null){
+            contas.inserir(conta);
+        }else{
+            System.out.println("Conta ja cadastrada");
+        }
     }
 
     // Remover
     @Override
-    public void remover(String num) {
-        contas.remover(num);
+    public void remover(ContaAbstrata conta) {
+        contas.remover(conta);
     }
 
     // Consultar
@@ -36,7 +40,7 @@ public class CadConta extends CadGen<ContaAbstrata> {
     // Creditar
     public void creditar(String numeroConta, double valor) {
         if (valor > 0) {
-            if (contas.existe(numeroConta)) {
+            if (contas.procurar(numeroConta) != null) {
                 ContaAbstrata conta = consultar(numeroConta);
                 conta.creditar(valor);
                 contas.atualizar(conta);
@@ -50,7 +54,7 @@ public class CadConta extends CadGen<ContaAbstrata> {
 
     // Debitar
     public void debitar(String numeroConta, double valor) {
-        if (contas.existe(numeroConta)) {
+        if (contas.procurar(numeroConta) != null) {
             ContaAbstrata conta = consultar(numeroConta);
             conta.debitar(valor);
         } else {
@@ -60,7 +64,7 @@ public class CadConta extends CadGen<ContaAbstrata> {
 
     // Transferir
     public void transferir(String numOrigem, String numDestino, double valor){
-        if(contas.existe(numOrigem) && contas.existe(numDestino)){
+        if(contas.procurar(numOrigem) != null && contas.procurar(numDestino) != null){
             ContaAbstrata contaOrigem = consultar(numOrigem);
             ContaAbstrata contaDestino = consultar(numDestino);
             

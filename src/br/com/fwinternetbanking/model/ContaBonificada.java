@@ -13,8 +13,8 @@ public class ContaBonificada extends Conta {
     
     private double bonus;
     
-    public ContaBonificada(String numero, double saldo, Cliente cliente) {
-        super(numero, saldo, cliente);
+    public ContaBonificada(String numero, double saldo, Cliente cliente, TipoConta tipo) {
+        super(numero, saldo, cliente, tipo);
     }
 
     public void renderBonus(double bonus){

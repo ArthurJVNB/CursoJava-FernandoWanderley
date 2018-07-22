@@ -46,8 +46,8 @@ public class Fachada {
         return contas.consultar(num);
     }
     
-    public void descadastrarConta(String num){
-        contas.remover(num);
+    public void descadastrarConta(Conta c){
+        contas.remover(c);
     }
     
     public void creditar(String num, double valor){
@@ -82,7 +82,7 @@ public class Fachada {
         return clientes.consultar(cpf);
     }
     
-    public void descadastrarCliente(String cpf){
-        clientes.remover(cpf);
+    public void descadastrarCliente(Cliente c){
+        clientes.remover(c);
     }
 }

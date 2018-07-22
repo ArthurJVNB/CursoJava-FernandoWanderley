@@ -1,16 +1,24 @@
 package br.com.fwinternetbanking.model;
 
 public abstract class ContaAbstrata {
+	
+	public enum TipoConta{
+		ContaPoupanca,
+		ContaImposto,
+		ContaBonificada;
+	}
 
     private String numero;
     private double saldo;
     private Cliente cliente;
+    private TipoConta tipo;
 
     // CONSTRUTORES
-    public ContaAbstrata(String numero, double saldo, Cliente cliente) {
+    public ContaAbstrata(String numero, double saldo, Cliente cliente, TipoConta tipo) {
         this.numero = numero;
         this.saldo = saldo;
         this.cliente = cliente;
+        this.tipo = tipo;
     }
 
     // GETS
@@ -22,7 +30,15 @@ public abstract class ContaAbstrata {
         return saldo;
     }
     
-    public Cliente getCliente() {
+    public TipoConta getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(TipoConta tipo) {
+		this.tipo = tipo;
+	}
+
+	public Cliente getCliente() {
     	return cliente;
     }
 
