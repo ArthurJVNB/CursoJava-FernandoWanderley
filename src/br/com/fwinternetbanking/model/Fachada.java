@@ -26,7 +26,7 @@ public class Fachada {
         initCadastros();
     }
     
-    private void initCadastros(){
+    private void initCadastros() {
         RepositorioClienteArray repClientes = new RepositorioClienteArray();
         RepositorioContasArray repContas = new RepositorioContasArray();
         
@@ -34,31 +34,31 @@ public class Fachada {
         clientes = new CadCliente(repClientes);
     }
 //    metodos de conta
-    public void cadastrarConta(Conta c){
+    public void cadastrarConta(Conta c) throws Exception{
         contas.inserir(c);
     }
     
-    public void atualizarConta(Conta c){
+    public void atualizarConta(Conta c) throws Exception{
         contas.atualizar(c);
     }
     
-    public ContaAbstrata procurarConta(String num){
+    public ContaAbstrata procurarConta(String num) throws Exception{
         return contas.consultar(num);
     }
     
-    public void descadastrarConta(Conta c){
+    public void descadastrarConta(Conta c) throws Exception{
         contas.remover(c);
     }
     
-    public void creditar(String num, double valor){
+    public void creditar(String num, double valor) throws Exception{
         contas.creditar(num, valor);
     }
     
-    public void debitar(String num, double valor){
+    public void debitar(String num, double valor) throws Exception{
         contas.debitar(num, valor);
     }
     
-    public void transferir(String numOrigem, String numDestino, double valor){
+    public void transferir(String numOrigem, String numDestino, double valor) throws Exception{
         ContaAbstrata origem = contas.consultar(numOrigem);
         ContaAbstrata destino = contas.consultar(numDestino);
         
@@ -70,19 +70,19 @@ public class Fachada {
     
 //    metodos de cliente
     
-    public void cadastrarCliente(Cliente c){
+    public void cadastrarCliente(Cliente c) throws Exception{
         clientes.inserir(c);
     }
     
-    public void atualizarCliente(Cliente c){
+    public void atualizarCliente(Cliente c) throws Exception{
         clientes.atualizar(c);
     }
     
-    public Cliente procurarCliente(String cpf){
+    public Cliente procurarCliente(String cpf) throws Exception{
         return clientes.consultar(cpf);
     }
     
-    public void descadastrarCliente(Cliente c){
+    public void descadastrarCliente(Cliente c) throws Exception{
         clientes.remover(c);
     }
 }

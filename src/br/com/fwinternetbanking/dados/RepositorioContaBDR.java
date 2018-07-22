@@ -28,7 +28,7 @@ public class RepositorioContaBDR implements IRepGen<ContaAbstrata> {
 			stmt = con.createStatement();
 			
 			String sql = "INSERT INTO " + TABELA_CONTA + " VALUES (" + 
-//					conta.getId() + ", " + 
+					conta.getId() + ", " + 
 					conta.getCliente().getCpf() + ", " + 
 					conta.getNumero() + ", " +
 					conta.getSaldo() + ", " + 

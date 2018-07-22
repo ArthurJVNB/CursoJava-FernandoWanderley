@@ -11,11 +11,6 @@ package br.com.fwinternetbanking.model;
  */
 public interface IRepCliente extends IRepGen<Cliente> {
 
-	public void inserir(Cliente cliente);
-
-	public void atualizar(Cliente cliente);
-
-	public Cliente procurar(String cpf);
-
-	public void remover(Cliente cliente);
+	
 }
+
