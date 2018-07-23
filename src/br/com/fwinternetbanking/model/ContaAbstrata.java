@@ -1,6 +1,6 @@
 package br.com.fwinternetbanking.model;
 
-public abstract class ContaAbstrata {
+public abstract class ContaAbstrata extends EntidadeGen {
 	
 	public enum TipoConta{
 		ContaPoupanca,
@@ -39,6 +39,7 @@ public abstract class ContaAbstrata {
 
     // CONSTRUTORES
     public ContaAbstrata(String numero, double saldo, Cliente cliente, TipoConta tipo) {
+        super(numero);
         this.numero = numero;
         this.saldo = saldo;
         this.cliente = cliente;
@@ -106,11 +107,5 @@ public abstract class ContaAbstrata {
     @Override
     public String toString() {
         return this.getNumero();
-    }
-    
-    // TODO colocar como override quando a classe abstrata com ID for criada
-    // nao retirar esse metodo
-    public String getId() {
-    	return this.getNumero();
     }
 }

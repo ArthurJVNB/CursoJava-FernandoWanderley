@@ -127,22 +127,22 @@ public class RepositorioContaBDR implements IRepGen<ContaAbstrata> {
 					Cliente cliente = procurarCliente(clienteCpf);
 					TipoConta tipo = null;	// TODO criar o tipo de acordo com o encontrado na tabela
 					
-					if (tipo.equals(TipoConta.ContaBonificada)) {
+					if (tipoEmString.equals(TipoConta.ContaBonificada.toString())) {
 						
 						tipo = TipoConta.ContaBonificada;
 						conta = new ContaBonificada(numero, saldo, cliente, tipo);
 						
-					} else if (tipo.equals(TipoConta.ContaImposto)) {
+					} else if (tipoEmString.equals(TipoConta.ContaImposto.toString())) {
 						
 						tipo = TipoConta.ContaImposto;
 						conta = new ContaImposto(numero, saldo, cliente, tipo);
 						
-					} else if (tipo.equals(TipoConta.ContaPadrao)) {
+					} else if (tipoEmString.equals(TipoConta.ContaPadrao.toString())) {
 						
 						tipo = TipoConta.ContaPadrao;
 						conta = new Conta(numero, saldo, cliente, tipo);
 						
-					} else if (tipo.equals(TipoConta.ContaPoupanca)) {
+					} else if (tipoEmString.equals(TipoConta.ContaPoupanca.toString())) {
 						
 						tipo = TipoConta.ContaPoupanca;
 						conta = new Poupanca(numero, saldo, cliente, tipo);
