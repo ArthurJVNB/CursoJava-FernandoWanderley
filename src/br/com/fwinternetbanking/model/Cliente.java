@@ -11,10 +11,7 @@ package br.com.fwinternetbanking.model;
  */
 public class Cliente implements Comparable<Cliente> {
 
-	public enum TipoCliente {
-		Standard, Class, Vip;
-	}
-
+	
 	private final String cpf;
 	private String nome;
 	private TipoCliente tipo;

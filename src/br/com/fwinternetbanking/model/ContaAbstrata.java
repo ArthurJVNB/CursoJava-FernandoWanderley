@@ -2,36 +2,7 @@ package br.com.fwinternetbanking.model;
 
 public abstract class ContaAbstrata extends EntidadeGen {
 	
-	public enum TipoConta{
-		ContaPoupanca,
-		ContaImposto,
-		ContaBonificada,
-		ContaPadrao;
-		
-		public TipoConta getTipo() {
-			return this;
-		}
-		
-		// TODO descobrir um jeito de nao duplicar esse codigo em RepositorioContaBDR.procurar(String chave)
-		public TipoConta getTipo(String tipo) {
-			TipoConta resultado = null;
-
-			// todos sao elseif para que fique facil expandir os tipos de contas no futuro
-			// (evitar erros nas comparacoes)
-			if (tipo.equals(TipoConta.ContaBonificada)) {
-				resultado = TipoConta.ContaBonificada;
-			} else if (tipo.equals(TipoConta.ContaImposto)) {
-				resultado = TipoConta.ContaImposto;
-			} else if (tipo.equals(TipoConta.ContaPadrao)) {
-				resultado = TipoConta.ContaPadrao;
-			} else if (tipo.equals(TipoConta.ContaPoupanca)) {
-				resultado = TipoConta.ContaPoupanca;
-			}
-			
-			return resultado;
-		}
-	}
-
+	
     private String numero;
     private double saldo;
     private Cliente cliente;
