@@ -1,14 +1,30 @@
 package br.com.fwinternetbanking.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+
+@Entity
+@Table (name = "tb_conta")
 public abstract class ContaAbstrata extends EntidadeGen {
 	
-	
+	@Column (name = "numero")
     private String numero;
+	
+	@Column (name = "saldo")
     private double saldo;
+	
+	@Column (name = "tb_cliente_cpf")
     private Cliente cliente;
+	
+	@Column (name = "tipo")
     private TipoConta tipo;
 
     // CONSTRUTORES
+    public ContaAbstrata() {}
+    
     public ContaAbstrata(String numero, double saldo, Cliente cliente, TipoConta tipo) {
         super(numero);
         this.numero = numero;

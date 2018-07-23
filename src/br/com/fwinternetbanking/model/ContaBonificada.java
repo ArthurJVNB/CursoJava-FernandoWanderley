@@ -5,14 +5,22 @@
  */
 package br.com.fwinternetbanking.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 /**
  *
  * @author Euller
  */
+
+@Entity
+@Table (name = "tb_conta")
 public class ContaBonificada extends Conta {
     
     private double bonus;
     
+    // CONSTRUTORES
+    public ContaBonificada() {}
     public ContaBonificada(String numero, double saldo, Cliente cliente, TipoConta tipo) {
         super(numero, saldo, cliente, tipo);
     }
