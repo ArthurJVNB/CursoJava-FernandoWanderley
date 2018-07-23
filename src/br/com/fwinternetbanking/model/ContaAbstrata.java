@@ -5,7 +5,31 @@ public abstract class ContaAbstrata {
 	public enum TipoConta{
 		ContaPoupanca,
 		ContaImposto,
-		ContaBonificada;
+		ContaBonificada,
+		ContaPadrao;
+		
+		public TipoConta getTipo() {
+			return this;
+		}
+		
+		// TODO descobrir um jeito de nao duplicar esse codigo em RepositorioContaBDR.procurar(String chave)
+		public TipoConta getTipo(String tipo) {
+			TipoConta resultado = null;
+
+			// todos sao elseif para que fique facil expandir os tipos de contas no futuro
+			// (evitar erros nas comparacoes)
+			if (tipo.equals(TipoConta.ContaBonificada)) {
+				resultado = TipoConta.ContaBonificada;
+			} else if (tipo.equals(TipoConta.ContaImposto)) {
+				resultado = TipoConta.ContaImposto;
+			} else if (tipo.equals(TipoConta.ContaPadrao)) {
+				resultado = TipoConta.ContaPadrao;
+			} else if (tipo.equals(TipoConta.ContaPoupanca)) {
+				resultado = TipoConta.ContaPoupanca;
+			}
+			
+			return resultado;
+		}
 	}
 
     private String numero;
@@ -30,12 +54,8 @@ public abstract class ContaAbstrata {
         return saldo;
     }
     
-    public TipoConta getTipo() {
-		return tipo;
-	}
-
-	public void setTipo(TipoConta tipo) {
-		this.tipo = tipo;
+    public String getTipo() {
+		return tipo.toString();
 	}
 
 	public Cliente getCliente() {
@@ -46,6 +66,11 @@ public abstract class ContaAbstrata {
     protected void setSaldo(double valor) {
         saldo = valor;
     }
+    
+    // TODO nao sei se esse metodo eh util ---Arthur
+    protected void setTipo(TipoConta tipo) {
+		this.tipo = tipo;
+	}
 
     // CREDITAR E DEBITAR
     public void creditar(double valor) {
@@ -81,5 +106,11 @@ public abstract class ContaAbstrata {
     @Override
     public String toString() {
         return this.getNumero();
+    }
+    
+    // TODO colocar como override quando a classe abstrata com ID for criada
+    // nao retirar esse metodo
+    public String getId() {
+    	return this.getNumero();
     }
 }
