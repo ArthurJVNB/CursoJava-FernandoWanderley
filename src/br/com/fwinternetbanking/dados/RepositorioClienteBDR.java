@@ -72,7 +72,7 @@ public class RepositorioClienteBDR implements IRepCliente {
 				stmt.setString(1, cpf);
 				ResultSet rs = stmt.executeQuery(sql);
 				ResultSet rs2 = stmt.executeQuery(sql2);
-				cliente = new Cliente(rs.getString("NOME"), rs.getString("CPF"), rs2.getString("CEP"), rs2.getString("NUMERO"), rs2.getString("COMPLEMENTO"));
+				// cliente = new Cliente(rs.getString("NOME"), rs.getString("CPF"), rs2.getString("CEP"), rs2.getString("NUMERO"), rs2.getString("COMPLEMENTO"));
 //				cliente = new Cliente(rs.getString("NOME"), rs.getString("CPF"), rs.getInt("TIPO")));
 //				Nao tem TIPO no TB_CLIENTE
 				stmt.close();

@@ -161,6 +161,7 @@ public class RepositorioContaBDR implements IRepGen<ContaAbstrata> {
 	// TODO se comunicar com o repositorio de clientes e obter o cliente pelo cpf
 	private Cliente procurarCliente(String cpf) throws Exception {
 		IRepGen<Cliente> clientes = null;
+		// Estah incompleto. Dara um excecao de ponteiro 
 		Cliente cliente = clientes.procurar(cpf);
 		
 		return cliente;
