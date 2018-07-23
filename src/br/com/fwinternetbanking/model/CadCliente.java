@@ -17,8 +17,8 @@ public class CadCliente extends CadGen<Cliente>{
         }
         
         @Override
-        public void inserir(Cliente cliente){
-            if(!clientes.existe(cliente.getCpf())){
+        public void inserir(Cliente cliente) throws Exception{
+            if(clientes.procurar(cliente.getCpf()) == null){
                 clientes.inserir(cliente);
             }else{
                 System.out.println("Cliente ja cadastrado");
@@ -26,17 +26,17 @@ public class CadCliente extends CadGen<Cliente>{
         }
         
         @Override
-        public void atualizar(Cliente cliente){
+        public void atualizar(Cliente cliente) throws Exception{
             clientes.atualizar(cliente);
         }
         
         @Override
-        public Cliente consultar(String cpf){
+        public Cliente consultar(String cpf) throws Exception{
             return clientes.procurar(cpf);
         }
         
         @Override
-        public void remover (String cpf){
-            clientes.remover(cpf);
+        public void remover (Cliente cliente) throws Exception{
+            clientes.remover(cliente);
         }
 }

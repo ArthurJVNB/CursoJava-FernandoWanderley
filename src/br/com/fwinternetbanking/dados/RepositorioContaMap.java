@@ -37,11 +37,10 @@ public class RepositorioContaMap implements IRepConta {
 	}
 
 	@Override
-	public void remover(String numeroConta) {
-		contas.remove(numeroConta);
+	public void remover(ContaAbstrata conta) {
+		contas.remove(conta);
 	}
 
-	@Override
 	public boolean existe(String numeroConta) {
 		return contas.containsKey(numeroConta);
 	}

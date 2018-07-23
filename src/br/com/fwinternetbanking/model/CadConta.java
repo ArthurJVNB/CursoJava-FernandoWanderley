@@ -11,32 +11,36 @@ public class CadConta extends CadGen<ContaAbstrata> {
 
     // Inserir
     @Override
-    public void inserir(ContaAbstrata conta) {
-        contas.inserir(conta);
+    public void inserir(ContaAbstrata conta) throws Exception{
+    	if(contas.procurar(conta.getNumero()) == null){
+            contas.inserir(conta);
+        }else{
+            System.out.println("Conta ja cadastrada");
+        }
     }
 
     // Remover
     @Override
-    public void remover(String num) {
-        contas.remover(num);
+    public void remover(ContaAbstrata conta) throws Exception{
+        contas.remover(conta);
     }
 
     // Consultar
     @Override
-    public ContaAbstrata consultar(String numeroConta) {
+    public ContaAbstrata consultar(String numeroConta) throws Exception{
         return contas.procurar(numeroConta);
     }
 
     // Atualizar
     @Override
-    public void atualizar(ContaAbstrata conta) {
+    public void atualizar(ContaAbstrata conta) throws Exception{
         contas.atualizar(conta);
     }
 
     // Creditar
-    public void creditar(String numeroConta, double valor) {
+    public void creditar(String numeroConta, double valor) throws Exception{
         if (valor > 0) {
-            if (contas.existe(numeroConta)) {
+            if (contas.procurar(numeroConta) != null) {
                 ContaAbstrata conta = consultar(numeroConta);
                 conta.creditar(valor);
                 contas.atualizar(conta);
@@ -49,8 +53,8 @@ public class CadConta extends CadGen<ContaAbstrata> {
     }
 
     // Debitar
-    public void debitar(String numeroConta, double valor) {
-        if (contas.existe(numeroConta)) {
+    public void debitar(String numeroConta, double valor) throws Exception{
+        if (contas.procurar(numeroConta) != null) {
             ContaAbstrata conta = consultar(numeroConta);
             conta.debitar(valor);
         } else {
@@ -59,8 +63,8 @@ public class CadConta extends CadGen<ContaAbstrata> {
     }
 
     // Transferir
-    public void transferir(String numOrigem, String numDestino, double valor){
-        if(contas.existe(numOrigem) && contas.existe(numDestino)){
+    public void transferir(String numOrigem, String numDestino, double valor) throws Exception{
+        if(contas.procurar(numOrigem) != null && contas.procurar(numDestino) != null){
             ContaAbstrata contaOrigem = consultar(numOrigem);
             ContaAbstrata contaDestino = consultar(numDestino);
             

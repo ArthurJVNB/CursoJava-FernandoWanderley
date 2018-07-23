@@ -1,16 +1,48 @@
 package br.com.fwinternetbanking.model;
 
 public abstract class ContaAbstrata {
+	
+	public enum TipoConta{
+		ContaPoupanca,
+		ContaImposto,
+		ContaBonificada,
+		ContaPadrao;
+		
+		public TipoConta getTipo() {
+			return this;
+		}
+		
+		// TODO descobrir um jeito de nao duplicar esse codigo em RepositorioContaBDR.procurar(String chave)
+		public TipoConta getTipo(String tipo) {
+			TipoConta resultado = null;
+
+			// todos sao elseif para que fique facil expandir os tipos de contas no futuro
+			// (evitar erros nas comparacoes)
+			if (tipo.equals(TipoConta.ContaBonificada)) {
+				resultado = TipoConta.ContaBonificada;
+			} else if (tipo.equals(TipoConta.ContaImposto)) {
+				resultado = TipoConta.ContaImposto;
+			} else if (tipo.equals(TipoConta.ContaPadrao)) {
+				resultado = TipoConta.ContaPadrao;
+			} else if (tipo.equals(TipoConta.ContaPoupanca)) {
+				resultado = TipoConta.ContaPoupanca;
+			}
+			
+			return resultado;
+		}
+	}
 
     private String numero;
     private double saldo;
     private Cliente cliente;
+    private TipoConta tipo;
 
     // CONSTRUTORES
-    public ContaAbstrata(String numero, double saldo, Cliente cliente) {
+    public ContaAbstrata(String numero, double saldo, Cliente cliente, TipoConta tipo) {
         this.numero = numero;
         this.saldo = saldo;
         this.cliente = cliente;
+        this.tipo = tipo;
     }
 
     // GETS
@@ -21,11 +53,24 @@ public abstract class ContaAbstrata {
     public double getSaldo() {
         return saldo;
     }
+    
+    public String getTipo() {
+		return tipo.toString();
+	}
+
+	public Cliente getCliente() {
+    	return cliente;
+    }
 
     // SETS
     protected void setSaldo(double valor) {
         saldo = valor;
     }
+    
+    // TODO nao sei se esse metodo eh util ---Arthur
+    protected void setTipo(TipoConta tipo) {
+		this.tipo = tipo;
+	}
 
     // CREDITAR E DEBITAR
     public void creditar(double valor) {
@@ -61,5 +106,11 @@ public abstract class ContaAbstrata {
     @Override
     public String toString() {
         return this.getNumero();
+    }
+    
+    // TODO colocar como override quando a classe abstrata com ID for criada
+    // nao retirar esse metodo
+    public String getId() {
+    	return this.getNumero();
     }
 }

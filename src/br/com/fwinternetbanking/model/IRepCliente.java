@@ -9,15 +9,8 @@ package br.com.fwinternetbanking.model;
  *
  * @author Euller
  */
-public interface IRepCliente{
+public interface IRepCliente extends IRepGen<Cliente> {
 
-    public void inserir(Cliente cliente);
-
-    public boolean existe(String cpf);
-
-    public void atualizar(Cliente cliente);
-
-    public Cliente procurar(String cpf);
-
-    public void remover(String cpf);
+	
 }
+

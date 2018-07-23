@@ -11,13 +11,11 @@ package br.com.fwinternetbanking.model;
  */
 public interface IRepGen<G> {
 
-    void inserir(G g);
+	public void inserir(G g) throws Exception;
 
-    void atualizar(G g);
+	public void atualizar(G g) throws Exception;
 
-    void remover(String chave);
+	public void remover( G g) throws Exception;
 
-    boolean existe(String chave);
-
-    G procurar(String chave);
+	public G procurar(String chave) throws Exception;
 }
