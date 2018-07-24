@@ -9,12 +9,11 @@ import java.sql.Statement;
 import br.com.fwinternetbanking.model.Cliente;
 import br.com.fwinternetbanking.model.Conta;
 import br.com.fwinternetbanking.model.ContaAbstrata;
-import br.com.fwinternetbanking.model.ContaAbstrata.TipoConta;
 import br.com.fwinternetbanking.model.ContaBonificada;
 import br.com.fwinternetbanking.model.ContaImposto;
-import br.com.fwinternetbanking.model.IRepCliente;
 import br.com.fwinternetbanking.model.IRepGen;
 import br.com.fwinternetbanking.model.Poupanca;
+import br.com.fwinternetbanking.model.TipoConta;
 import br.com.fwinternetbanking.model.util.JDBCConnectionUtil;
 
 public class RepositorioContaBDR implements IRepGen<ContaAbstrata> {

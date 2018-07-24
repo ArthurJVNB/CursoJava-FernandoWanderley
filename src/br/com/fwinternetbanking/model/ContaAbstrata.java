@@ -2,24 +2,29 @@ package br.com.fwinternetbanking.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
 @Entity
-@Table (name = "tb_conta")
+@Table (name = "TB_CONTA")
 public abstract class ContaAbstrata extends EntidadeGen {
 	
-	@Column (name = "numero")
+	@Id
+	@Column (name = "NUMERO")
     private String numero;
 	
-	@Column (name = "saldo")
+	@Column (name = "SALDO")
     private double saldo;
 	
-	@Column (name = "tb_cliente_cpf")
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "TB_CLIENTE_CPF")
     private Cliente cliente;
 	
-	@Column (name = "tipo")
+	@Column (name = "TIPO")
     private TipoConta tipo;
 
     // CONSTRUTORES
