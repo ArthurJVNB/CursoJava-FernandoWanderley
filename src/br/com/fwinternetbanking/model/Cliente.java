@@ -24,11 +24,11 @@ public class Cliente implements Comparable<Cliente> {
 //		this.tipo = tipo;
 //	}
 
-	public Cliente(String cpf, String nome, Endereco endereco) {
+	public Cliente(String cpf, String nome, String cep, String numero, String complemento) {
 		super();
 		this.cpf = cpf;
 		this.nome = nome;
-		this.endereco = endereco;
+		this.endereco = new Endereco(cep, numero, complemento);
 	}
 
 	public String getCpf() {
