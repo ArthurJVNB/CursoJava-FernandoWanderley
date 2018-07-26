@@ -19,6 +19,10 @@
 		<mapping class="br.com.fwinternetbanking.model.Poupanca"/>
 		<mapping class="br.com.fwinternetbanking.model.ContaBonificada"/>
 		<mapping class="br.com.fwinternetbanking.model.ContaImposto"/>
+		
+		<mapping class="br.com.fwinternetbanking.model.Cliente"/>
+		<mapping class="br.com.fwinternetbanking.model.Gerente"/>
+		<mapping class="br.com.fwinternetbanking.model.Endereco"/>
 	</session-factory>  
 	
 </hibernate-configuration> 
