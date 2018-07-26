@@ -1,6 +1,5 @@
 package br.com.fwinternetbanking.dados;
 
-import br.com.fwinternetbanking.model.Conta;
 import br.com.fwinternetbanking.model.ContaAbstrata;
 import br.com.fwinternetbanking.model.IRepConta;
 

@@ -11,10 +11,7 @@ package br.com.fwinternetbanking.model;
  */
 public class Cliente implements Comparable<Cliente> {
 
-	public enum TipoCliente {
-		Standard, Class, Vip;
-	}
-
+	
 	private final String cpf;
 	private String nome;
 	private TipoCliente tipo;
@@ -27,11 +24,11 @@ public class Cliente implements Comparable<Cliente> {
 //		this.tipo = tipo;
 //	}
 
-	public Cliente(String cpf, String nome, Endereco endereco) {
+	public Cliente(String cpf, String nome, String cep, String numero, String complemento) {
 		super();
 		this.cpf = cpf;
 		this.nome = nome;
-		this.endereco = endereco;
+		this.endereco = new Endereco(cep, numero, complemento);
 	}
 
 	public String getCpf() {

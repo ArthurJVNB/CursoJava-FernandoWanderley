@@ -1,44 +1,37 @@
 package br.com.fwinternetbanking.model;
 
-public abstract class ContaAbstrata {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+
+@Entity
+@Table (name = "TB_CONTA")
+public abstract class ContaAbstrata extends EntidadeGen {
 	
-	public enum TipoConta{
-		ContaPoupanca,
-		ContaImposto,
-		ContaBonificada,
-		ContaPadrao;
-		
-		public TipoConta getTipo() {
-			return this;
-		}
-		
-		// TODO descobrir um jeito de nao duplicar esse codigo em RepositorioContaBDR.procurar(String chave)
-		public TipoConta getTipo(String tipo) {
-			TipoConta resultado = null;
-
-			// todos sao elseif para que fique facil expandir os tipos de contas no futuro
-			// (evitar erros nas comparacoes)
-			if (tipo.equals(TipoConta.ContaBonificada)) {
-				resultado = TipoConta.ContaBonificada;
-			} else if (tipo.equals(TipoConta.ContaImposto)) {
-				resultado = TipoConta.ContaImposto;
-			} else if (tipo.equals(TipoConta.ContaPadrao)) {
-				resultado = TipoConta.ContaPadrao;
-			} else if (tipo.equals(TipoConta.ContaPoupanca)) {
-				resultado = TipoConta.ContaPoupanca;
-			}
-			
-			return resultado;
-		}
-	}
-
+	@Id
+	@Column (name = "NUMERO")
     private String numero;
+	
+	@Column (name = "SALDO")
     private double saldo;
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "TB_CLIENTE_CPF")
     private Cliente cliente;
+	
+	@Column (name = "TIPO")
     private TipoConta tipo;
 
     // CONSTRUTORES
+    public ContaAbstrata() {}
+    
     public ContaAbstrata(String numero, double saldo, Cliente cliente, TipoConta tipo) {
+        super(numero);
         this.numero = numero;
         this.saldo = saldo;
         this.cliente = cliente;
@@ -106,11 +99,5 @@ public abstract class ContaAbstrata {
     @Override
     public String toString() {
         return this.getNumero();
-    }
-    
-    // TODO colocar como override quando a classe abstrata com ID for criada
-    // nao retirar esse metodo
-    public String getId() {
-    	return this.getNumero();
     }
 }
