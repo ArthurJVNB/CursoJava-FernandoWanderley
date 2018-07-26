@@ -10,7 +10,8 @@ public abstract class ContaAbstrata extends E<ContaAbstrata>{
 	private double saldo;
 	private String cpfCliente;
 	
-	public ContaAbstrata(){}
+	public ContaAbstrata() {}
+	
 	public ContaAbstrata(String numero, double saldo, String cpfCliente) {
 		super(numero);
 		this.saldo = saldo;

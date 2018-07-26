@@ -5,7 +5,8 @@ public class Endereco {
 	private String cep;
 	private String localNumero;
 	
-	public Endereco(){}
+	public Endereco() {}
+	
 	public Endereco(String cep, String localNumero) {
 		this.cep = cep;
 		this.localNumero = localNumero;

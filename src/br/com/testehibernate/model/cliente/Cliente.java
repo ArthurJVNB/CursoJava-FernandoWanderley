@@ -10,7 +10,8 @@ public class Cliente extends E<Cliente> {
 	private Endereco endereco;
 	private ArrayList<String> numeroContas;
 	
-	public Cliente(){}
+	public Cliente() {}
+	
 	public Cliente(String cpf, String cep, String localNumero) {
 		super(cpf);
 		this.cpf = cpf;
