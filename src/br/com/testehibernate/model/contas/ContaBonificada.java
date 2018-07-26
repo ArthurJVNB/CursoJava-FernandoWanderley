@@ -1,8 +1,15 @@
 package br.com.testehibernate.model.contas;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table (name = "TB_CONTA")
 public class ContaBonificada extends Conta {
 	
 	private static double TAXA_BONIFICACAO = 0.01; // 1%
+	
+	// TODO ver se precisa salvar o bonus atual
 	private double bonus;
 	
 	public ContaBonificada() {}

@@ -1,19 +1,31 @@
 package br.com.testehibernate.model.contas;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 import br.com.testehibernate.model.E;
 import br.com.testehibernate.model.exceptions.ContaDestinoNaoEncontradaException;
 import br.com.testehibernate.model.exceptions.SaldoNegativoException;
 
+@Entity
+@Table (name = "TB_CONTA")
 public abstract class ContaAbstrata extends E<ContaAbstrata>{
 	
+	@Column (name = "NUMERO")
 	private String numero;
+	
+	@Column (name = "SALDO")
 	private double saldo;
+	
+	@Column (name = "TB_CLIENTE_CPF")
 	private String cpfCliente;
 	
 	public ContaAbstrata() {}
 	
 	public ContaAbstrata(String numero, double saldo, String cpfCliente) {
 		super(numero);
+		this.numero = numero;
 		this.saldo = saldo;
 		this.cpfCliente = cpfCliente;
 	}

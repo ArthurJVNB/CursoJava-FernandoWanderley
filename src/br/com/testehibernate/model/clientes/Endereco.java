@@ -1,17 +1,27 @@
 package br.com.testehibernate.model.clientes;
 
 public class Endereco {
-	
+	// TODO fazer a preparacao para o Hibernate
+	private String cpfCliente;
 	private String cep;
 	private String localNumero;
 	
 	public Endereco() {}
 	
-	public Endereco(String cep, String localNumero) {
+	public Endereco(String cpfCliente, String cep, String localNumero) {
+		this.cpfCliente = cpfCliente;
 		this.cep = cep;
 		this.localNumero = localNumero;
 	}
 	
+	public String getCpfCliente() {
+		return cpfCliente;
+	}
+
+	public void setCpfCliente(String cpfCliente) {
+		this.cpfCliente = cpfCliente;
+	}
+
 	protected String getCep() {
 		return cep;
 	}
