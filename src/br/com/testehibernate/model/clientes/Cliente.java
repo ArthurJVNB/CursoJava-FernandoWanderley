@@ -1,9 +1,15 @@
-package br.com.testehibernate.model.cliente;
+package br.com.testehibernate.model.clientes;
 
 import java.util.ArrayList;
 
+import javax.persistence.Table;
+
+import org.hibernate.annotations.Entity;
+
 import br.com.testehibernate.model.E;
 
+@Entity
+@Table (name = "TB_CLIENTE")
 public class Cliente extends E<Cliente> {
 	
 	private String cpf;

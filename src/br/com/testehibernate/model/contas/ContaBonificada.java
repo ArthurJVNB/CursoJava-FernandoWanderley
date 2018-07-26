@@ -1,4 +1,4 @@
-package br.com.testehibernate.model.conta;
+package br.com.testehibernate.model.contas;
 
 public class ContaBonificada extends Conta {
 	

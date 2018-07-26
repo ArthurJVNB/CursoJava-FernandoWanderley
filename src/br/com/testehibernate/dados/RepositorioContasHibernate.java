@@ -1,6 +1,6 @@
 package br.com.testehibernate.dados;
 
-import br.com.testehibernate.model.conta.ContaAbstrata;
+import br.com.testehibernate.model.contas.ContaAbstrata;
 
 public class RepositorioContasHibernate implements IRepositorio<ContaAbstrata> {
 
@@ -27,5 +27,7 @@ public class RepositorioContasHibernate implements IRepositorio<ContaAbstrata> {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	// TODO Listar
 
 }

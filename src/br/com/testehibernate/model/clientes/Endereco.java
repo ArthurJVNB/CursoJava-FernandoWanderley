@@ -1,4 +1,4 @@
-package br.com.testehibernate.model.cliente;
+package br.com.testehibernate.model.clientes;
 
 public class Endereco {
 	

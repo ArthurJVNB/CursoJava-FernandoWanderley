@@ -15,4 +15,11 @@
 		<property name="hibernate.use_sql_comments">false</property>
 	</session-factory>  
 	
+	<mapping class="br.com.testehibernate.mode.clientes.Cliente"/>
+	<mapping class="br.com.testehibernate.mode.contas.ContaAbstrata"/>
+	<mapping class="br.com.testehibernate.mode.contas.Conta"/>
+	<mapping class="br.com.testehibernate.mode.contas.ContaImposto"/>
+	<mapping class="br.com.testehibernate.mode.contas.ContaBonificada"/>
+	<mapping class="br.com.testehibernate.mode.contas.Poupanca"/>
+	
 </hibernate-configuration> 

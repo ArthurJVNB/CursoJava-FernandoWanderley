@@ -1,6 +1,6 @@
-package br.com.testehibernate.model.conta;
+package br.com.testehibernate.model.contas;
 
-import br.com.testehibernate.model.exception.SaldoNegativoException;
+import br.com.testehibernate.model.exceptions.SaldoNegativoException;
 
 public class Conta extends ContaAbstrata {
 

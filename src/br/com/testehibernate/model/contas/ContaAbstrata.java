@@ -1,8 +1,8 @@
-package br.com.testehibernate.model.conta;
+package br.com.testehibernate.model.contas;
 
 import br.com.testehibernate.model.E;
-import br.com.testehibernate.model.exception.ContaDestinoNaoEncontradaException;
-import br.com.testehibernate.model.exception.SaldoNegativoException;
+import br.com.testehibernate.model.exceptions.ContaDestinoNaoEncontradaException;
+import br.com.testehibernate.model.exceptions.SaldoNegativoException;
 
 public abstract class ContaAbstrata extends E<ContaAbstrata>{
 	

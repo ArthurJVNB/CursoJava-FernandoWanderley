@@ -1,4 +1,4 @@
-package br.com.testehibernate.model.exception;
+package br.com.testehibernate.model.exceptions;
 
 public class ContaDestinoNaoEncontradaException extends Exception {
 	
