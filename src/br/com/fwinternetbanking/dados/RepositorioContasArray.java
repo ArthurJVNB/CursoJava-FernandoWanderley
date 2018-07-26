@@ -1,7 +1,7 @@
 package br.com.fwinternetbanking.dados;
 
-import br.com.fwinternetbanking.model.ContaAbstrata;
 import br.com.fwinternetbanking.model.IRepConta;
+import br.com.fwinternetbanking.model.contas.ContaAbstrata;
 
 public class RepositorioContasArray implements IRepConta {
 

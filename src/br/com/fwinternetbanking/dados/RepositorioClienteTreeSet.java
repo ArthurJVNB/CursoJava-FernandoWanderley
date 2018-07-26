@@ -2,8 +2,8 @@ package br.com.fwinternetbanking.dados;
 
 import java.util.TreeSet;
 
-import br.com.fwinternetbanking.model.Cliente;
 import br.com.fwinternetbanking.model.IRepCliente;
+import br.com.fwinternetbanking.model.clientes.Cliente;
 
 public class RepositorioClienteTreeSet implements IRepCliente {
 	private TreeSet<Cliente> clientes;

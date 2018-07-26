@@ -1,4 +1,4 @@
-package br.com.fwinternetbanking.model;
+package br.com.fwinternetbanking.model.clientes;
 
 import java.util.Collection;
 

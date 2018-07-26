@@ -5,8 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import br.com.fwinternetbanking.model.Cliente;
 import br.com.fwinternetbanking.model.IRepCliente;
+import br.com.fwinternetbanking.model.clientes.Cliente;
 import br.com.fwinternetbanking.model.util.JDBCConnectionUtil;
 
 public class RepositorioClienteBDR implements IRepCliente {
