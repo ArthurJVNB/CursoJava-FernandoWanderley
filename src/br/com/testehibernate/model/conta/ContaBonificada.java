@@ -7,6 +7,14 @@ public class ContaBonificada extends Conta {
 	
 	public ContaBonificada() {}
 	
+	public double getBonus() {
+		return bonus;
+	}
+	
+	public void setBonus(double valor) {
+		bonus = valor;
+	}
+	
 	@Override
 	public void creditar(double valor) {
 		bonus = valor * TAXA_BONIFICACAO;

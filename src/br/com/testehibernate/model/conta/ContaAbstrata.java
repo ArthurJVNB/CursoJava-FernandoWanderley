@@ -43,6 +43,10 @@ public abstract class ContaAbstrata extends E<ContaAbstrata>{
 		return cpfCliente;
 	}
 	
+	public void setCpfCliente(String cpf) {
+		cpfCliente = cpf;
+	}
+	
 	public void creditar(double valor) {
 		saldo += valor;
 	}
