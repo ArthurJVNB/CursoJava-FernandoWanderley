@@ -115,7 +115,7 @@ public class RepositorioContaBDR implements IRepGen<ContaAbstrata> {
 
 					Cliente cliente = procurarCliente(clienteCpf);
 
-					conta = factoryContas.getTipoConta(tipoInt, saldo, numero, cliente);
+					conta = factoryContas.getTipoConta(tipoInt);
 
 				}
 			}
