@@ -1,5 +1,12 @@
 package br.com.fwinternetbanking.model;
 
+import br.com.fwinternetbanking.model.clientes.Cliente;
+import br.com.fwinternetbanking.model.contas.ContaAbstrata;
+import br.com.fwinternetbanking.model.contas.ContaBonificada;
+import br.com.fwinternetbanking.model.contas.ContaImposto;
+import br.com.fwinternetbanking.model.contas.Poupanca;
+import br.com.fwinternetbanking.model.contas.TipoConta;
+
 public class FactoryContas {
 	public ContaAbstrata getTipoConta(int conta) {
 

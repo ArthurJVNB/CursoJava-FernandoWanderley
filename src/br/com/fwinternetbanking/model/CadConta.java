@@ -1,5 +1,7 @@
 package br.com.fwinternetbanking.model;
 
+import br.com.fwinternetbanking.model.contas.ContaAbstrata;
+
 public class CadConta extends CadGen<ContaAbstrata> {
 
     private IRepConta contas;

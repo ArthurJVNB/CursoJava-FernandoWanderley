@@ -1,11 +1,22 @@
-package br.com.fwinternetbanking.model;
+package br.com.fwinternetbanking.model.clientes;
 
+import java.util.Collection;
+
+import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table (name = "TB_GERENTE")
 public class Gerente {
 	
 	private String nome;
 	private String fone;
 	private String celular;
 	private String email;
+	
+	@ManyToMany (mappedBy = "gerentes", targetEntity = Cliente.class)
+	private Collection<Cliente> clientes;
 
 	public Gerente(String nome, String fone, String celular, String email) {
 		this.nome = nome;
