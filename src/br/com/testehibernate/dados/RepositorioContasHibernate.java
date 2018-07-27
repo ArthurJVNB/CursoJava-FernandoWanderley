@@ -11,7 +11,7 @@ public class RepositorioContasHibernate implements IRepositorio<ContaAbstrata> {
 	}
 
 	@Override
-	public void remover(ContaAbstrata t) {
+	public void remover(String id) {
 		// TODO Auto-generated method stub
 		
 	}
