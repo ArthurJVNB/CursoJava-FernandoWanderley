@@ -1,26 +1,34 @@
 package br.com.fwinternetbanking.model;
 
-import br.com.fwinternetbanking.model.clientes.Cliente;
 import br.com.fwinternetbanking.model.contas.ContaAbstrata;
 import br.com.fwinternetbanking.model.contas.ContaBonificada;
 import br.com.fwinternetbanking.model.contas.ContaImposto;
 import br.com.fwinternetbanking.model.contas.Poupanca;
-import br.com.fwinternetbanking.model.contas.TipoConta;
 
 public class FactoryContas {
-	public ContaAbstrata getTipoConta(int conta, Double saldo, String numero, Cliente cliente) {
+	public ContaAbstrata getTipoConta(int conta) {
 
 		switch (conta) {
 		case 0:
-			return new ContaImposto(numero, saldo, cliente, TipoConta.ContaImposto);
+			return CriarContaImposto();
 		case 1:
-			return new ContaBonificada(numero, saldo, cliente, TipoConta.ContaBonificada);
+			return CriarContaBonificada();
 		case 2:
-			return new Poupanca(numero, saldo, cliente, TipoConta.ContaPoupanca);
+			return CriarContaPoupanca();
 
 		}
 
 		return null;
 
+	}
+	
+	private ContaAbstrata CriarContaBonificada() {
+		return new ContaBonificada();
+	}
+	private ContaAbstrata CriarContaImposto() {
+		return new ContaImposto();
+	}
+	private ContaAbstrata CriarContaPoupanca() {
+		return new Poupanca();
 	}
 }
