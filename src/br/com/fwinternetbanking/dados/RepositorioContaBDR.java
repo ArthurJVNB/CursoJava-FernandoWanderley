@@ -4,136 +4,122 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
+import br.com.fwinternetbanking.model.ContaAbstrata;
 import br.com.fwinternetbanking.model.FactoryContas;
 import br.com.fwinternetbanking.model.IRepGen;
-import br.com.fwinternetbanking.model.clientes.Cliente;
-import br.com.fwinternetbanking.model.contas.ContaAbstrata;
-import br.com.fwinternetbanking.model.util.JDBCConnectionUtil;
+import br.com.fwinternetbanking.util.JDBCConnectionUtil;
+import br.com.fwinternetbanking.util.SqlUtil;
 
 public class RepositorioContaBDR implements IRepGen<ContaAbstrata> {
-	private Connection con;
-	private static String TABELA_CONTA = "TB_CONTA";
-	private static String COLUNA_NUMERO = "NUMERO";
-	private static String COLUNA_SALDO = "SALDO";
-	private static String COLUNA_CLIENTE_CPF = "CLIENTE";
-	private static String COLUNA_TIPO = "TIPO";
 
 	@Override
 	public void inserir(ContaAbstrata conta) throws Exception {
+		String sql = SqlUtil.getProperties().getProperty("insert.conta");
+		PreparedStatement stmt = null;
+
 		try {
-			con = JDBCConnectionUtil.getConnection();
-
-			Statement stmt = con.createStatement();
-
-			String sql = "INSERT INTO " + TABELA_CONTA + " VALUES (" + conta.getId() + ", "
-					+ conta.getCliente().getCpf() + ", " + conta.getNumero() + ", " + conta.getSaldo() + ", " + null
-					+ ")"; // tipo da conta
-
-			stmt.executeUpdate(sql);
-
-			stmt.close();
-		} catch (SQLException e) {
-			throw e;
+			Connection conn = JDBCConnectionUtil.getConnection();
+			if (conta != null) {
+				stmt = conn.prepareStatement(sql);
+				stmt.setString(1, conta.getCliente().getCpf());
+				stmt.setString(2, conta.getNumero());
+				stmt.setDouble(3, conta.getSaldo());
+				stmt.setString(4, conta.getTipo());
+				stmt.executeUpdate(sql);
+			}
+		} catch (SQLException ex) {
+			throw ex;
+		} finally {
+			if (stmt != null) {
+				stmt.close();
+			}
 		}
 	}
 
 	@Override
 	public void atualizar(ContaAbstrata conta) throws Exception {
+		String sql = SqlUtil.getProperties().getProperty("update.conta");
+		PreparedStatement stmt = null;
+
 		try {
-			con = JDBCConnectionUtil.getConnection();
-
-			JDBCConnectionUtil.createTransaction(); // esperando atualizacao
-
-			String sql = "UPDATE " + TABELA_CONTA + " " + "SET TB_CLIENTE_CPF = ?, " + "NUMERO = ?, " + "SALDO = ?, "
-					+ "TIPO = ? " + "WHERE = ?";
-			PreparedStatement stmt = con.prepareStatement(sql);
-			stmt.setString(1, conta.getCliente().getCpf());
-			stmt.setString(2, conta.getNumero());
-			stmt.setDouble(3, conta.getSaldo());
-			stmt.setString(4, conta.getTipo());
-			stmt.setString(4, conta.getId());
-
-			stmt.executeUpdate();
-			JDBCConnectionUtil.commitTransaction(); // servidor atualizado
-
-			stmt.close();
-		} catch (SQLException e) {
-			throw e;
+			Connection conn = JDBCConnectionUtil.getConnection();
+			if (conta != null) {
+				stmt = conn.prepareStatement(sql);
+				stmt.setString(1, conta.getCliente().getCpf());
+				stmt.setString(2, conta.getNumero());
+				stmt.setDouble(3, conta.getSaldo());
+				stmt.setString(4, conta.getTipo());
+				stmt.executeUpdate(sql);
+				stmt.executeUpdate();
+			}
+		} catch (SQLException ex) {
+			throw ex;
+		} finally {
+			if (stmt != null) {
+				stmt.close();
+			}
 		}
 	}
 
 	@Override
 	public void remover(ContaAbstrata conta) throws Exception {
+		String sql = SqlUtil.getProperties().getProperty("delete.conta");
+		PreparedStatement stmt = null;
 		try {
-			con = JDBCConnectionUtil.getConnection();
+			Connection conn = JDBCConnectionUtil.getConnection();
+			if (conta != null) {
+				stmt = conn.prepareStatement(sql);
+				stmt.setString(1, conta.getNumero());
+				stmt.executeUpdate();
+			}
+		} catch (SQLException ex) {
+			throw ex;
 
-			Statement stmt = con.createStatement();
-			String sql = "DELETE FROM " + TABELA_CONTA + " VALUE(" + conta.getId() + ")";
-			stmt.execute(sql);
-
-			stmt.close();
-		} catch (SQLException e) {
-			throw e;
-
+		} finally {
+			if (stmt != null) {
+				stmt.close();
+			}
 		}
-	}
-
-	public boolean existe(String chave) throws Exception {
-		boolean resultado = false;
-
-		procurar(chave);
-
-		return resultado;
 	}
 
 	@Override
 	public ContaAbstrata procurar(String chave) throws Exception {
 		ContaAbstrata conta = null;
+		PreparedStatement stmt = null;
 		FactoryContas factoryContas = new FactoryContas();
-
+		String sql = SqlUtil.getProperties().getProperty("select.conta");
 		try {
-			con = JDBCConnectionUtil.getConnection();
-			Statement stmt = con.createStatement();
+			Connection conn = JDBCConnectionUtil.getConnection();
+			if (chave != null) {
+				stmt = conn.prepareStatement(sql);
+				ResultSet rs = stmt.executeQuery(sql);
 
-			String sql = "SELECT * FROM " + TABELA_CONTA;
-
-			ResultSet rs = stmt.executeQuery(sql);
-
-			while (rs.next() && conta == null) {
-				// ira procurar enquanto tiver um proximo elemento na tabela
-				// e enquanto ainda nao tiver encontrado alguem com o mesmo ID
-				if (chave.equals(rs.getString("ID"))) {
-					// TODO ver uma forma melhor de descobrir o tipo <-------------------- parei
-					// aqui
-
-					String numero = rs.getString(COLUNA_NUMERO);
-					double saldo = rs.getDouble(COLUNA_SALDO);
-					String clienteCpf = rs.getString(COLUNA_CLIENTE_CPF);
-					int tipoInt = rs.getInt(COLUNA_TIPO);
-
-					Cliente cliente = procurarCliente(clienteCpf);
-
-					conta = factoryContas.getTipoConta(tipoInt);
-
-				}
+				String numero = rs.getString("NUMERO");
+				double saldo = rs.getDouble("SALDO");
+				int tipoInt = rs.getInt("TIPO");
+				conta = factoryContas.getTipoConta(tipoInt);
+				conta.setCliente(null);
+				conta.setNumero(numero);
+				conta.creditar(saldo);
 			}
-
-			stmt.close();
-		} catch (SQLException e) {
-			throw e;
+		} catch (SQLException ex) {
+			throw ex;
+		} finally {
+			if (stmt != null) {
+				stmt.close();
+			}
 		}
 
 		return conta;
 	}
 
-	// TODO se comunicar com o repositorio de clientes e obter o cliente pelo cpf
-	private Cliente procurarCliente(String cpf) throws Exception {
-		IRepGen<Cliente> clientes = null;
-		// Estah incompleto. Dara um excecao de ponteiro
-		Cliente cliente = clientes.procurar(cpf);
-
-		return cliente;
-	}
+//	// TODO se comunicar com o repositorio de clientes e obter o cliente pelo cpf
+//	private Cliente procurarCliente(String cpf) throws Exception {
+//		IRepGen<Cliente> clientes = null;
+//		// Estah incompleto. Dara um excecao de ponteiro
+//		Cliente cliente = clientes.procurar(cpf);
+//
+//		return cliente;
+//	}
 }

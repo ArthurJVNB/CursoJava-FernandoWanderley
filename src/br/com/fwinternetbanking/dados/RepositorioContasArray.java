@@ -1,81 +1,96 @@
 package br.com.fwinternetbanking.dados;
 
+import br.com.fwinternetbanking.exceptions.ArrayCheioException;
+import br.com.fwinternetbanking.exceptions.ContaExisteException;
+import br.com.fwinternetbanking.exceptions.ContaNaoEncontradaException;
+import br.com.fwinternetbanking.model.ContaAbstrata;
 import br.com.fwinternetbanking.model.IRepConta;
-import br.com.fwinternetbanking.model.contas.ContaAbstrata;
 
 public class RepositorioContasArray implements IRepConta {
 
 	private ContaAbstrata[] contas;
 	private int indice;
+	private final static int tamCache = 100;
 
 	public RepositorioContasArray() {
-		contas = new ContaAbstrata[100];
 		indice = 0;
+		contas = new ContaAbstrata[tamCache];
 	}
 
 	@Override
-	public void inserir(ContaAbstrata conta) {
-		contas[indice] = conta;
-		indice++;
+	public void inserir(ContaAbstrata c) throws Exception {
+		try {
+			if (!existe(c.getNumero())) {
+				contas[indice] = c;
+				indice++;
+			} else {
+				throw new ContaExisteException();
+			}
+		} catch (ArrayIndexOutOfBoundsException e) {
+
+			throw new ArrayCheioException();
+		}
+
 	}
 
 	@Override
-	public void atualizar(ContaAbstrata conta) {
-		if (existe(conta.getNumero())) {
-			int resultadoIndice = procurarIndice(conta.getNumero());
-			contas[resultadoIndice] = conta;
+	public void atualizar(ContaAbstrata c) throws Exception {
+
+		int i = procurarIndice(c.getNumero());
+		if (i != -1) {
+			contas[i] = c;
+		} else {
+			throw new ContaNaoEncontradaException();
 		}
 	}
 
 	@Override
-	public void remover(ContaAbstrata c) {
+	public void remover(ContaAbstrata c) throws Exception {
 		if (existe(c.getNumero())) {
-			int resultadoIndice = procurarIndice(c.getNumero()); // o �ndice da conta que se quer apagar
-
-			for (int posSeguinte = resultadoIndice + 1; posSeguinte < indice; posSeguinte++) // at� o �NDICE, pois
-																								// ele est� sempre �
-																								// frente
-			{
-				int posAtual = posSeguinte - 1; // <<<<----- s� para estudo
-				contas[posAtual] = contas[posSeguinte];
-			}
-
-			indice--;
+			int i = this.procurarIndice(c.getNumero());
+			contas[i] = contas[indice - 1];
+			contas[indice - 1] = null;
+			indice = indice - 1;
+		} else {
+			throw new ContaNaoEncontradaException();
 		}
 	}
 
 	private int procurarIndice(String numeroConta) {
-		int resultado = -1;
+		int i = 0;
+		int ind = -1;
 
-		for (int i = 0; i < contas.length; i++) {
-			if (contas[i] != null && contas[i].getNumero().equals(numeroConta)) {
-				resultado = i;
+		for (ContaAbstrata c : contas) {
+			if (c.getNumero().equals(numeroConta)) {
+				ind = i;
+				break;
 			}
+			i++;
 		}
-
-		return resultado;
+		return ind;
 	}
 
-	
 	public boolean existe(String numeroConta) {
-		boolean resultado = false;
-
-		if (procurarIndice(numeroConta) >= 0) {
-			resultado = true;
+		boolean resp = false;
+		int i = this.procurarIndice(numeroConta);
+		if (i != -1) {
+			resp = true;
 		}
-
-		return resultado;
+		return resp;
 	}
 
 	@Override
-	public ContaAbstrata procurar(String numeroConta) {
-		ContaAbstrata resultadoConta = null;
+	public ContaAbstrata procurar(String numeroConta) throws Exception {
+		ContaAbstrata c = null;
 
 		if (existe(numeroConta)) {
-			int resultadoIndice = procurarIndice(numeroConta);
-			resultadoConta = contas[resultadoIndice];
+			int i = this.procurarIndice(numeroConta);
+			c = contas[i];
+		} else {
+			throw new ContaNaoEncontradaException();
 		}
 
-		return resultadoConta;
+		return c;
 	}
+
 }

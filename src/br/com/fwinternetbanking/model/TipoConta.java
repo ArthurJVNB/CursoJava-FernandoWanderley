@@ -1,4 +1,4 @@
-package br.com.fwinternetbanking.model.contas;
+package br.com.fwinternetbanking.model;
 
 public enum TipoConta {
 	ContaImposto, ContaBonificada, ContaPoupanca;

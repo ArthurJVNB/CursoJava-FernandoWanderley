@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.fwinternetbanking.model.clientes;
+package br.com.fwinternetbanking.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,6 +18,12 @@ import javax.persistence.Table;
 @Entity
 @Table (name = "TB_ENDERECO")
 public class Endereco {
+
+	@Override
+	public String toString() {
+		return "Endereco [clienteCpf=" + clienteCpf + ", cep=" + cep + ", numero=" + numero + ", Complemento="
+				+ Complemento + "]";
+	}
 
 	@Id
 	@Column (name = "TB_CLIENTE_CPF")

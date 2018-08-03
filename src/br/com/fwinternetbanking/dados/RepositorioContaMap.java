@@ -2,8 +2,8 @@ package br.com.fwinternetbanking.dados;
 
 import java.util.HashMap;
 
+import br.com.fwinternetbanking.model.ContaAbstrata;
 import br.com.fwinternetbanking.model.IRepConta;
-import br.com.fwinternetbanking.model.contas.ContaAbstrata;
 
 public class RepositorioContaMap implements IRepConta {
 	private HashMap<String, ContaAbstrata> contas;
