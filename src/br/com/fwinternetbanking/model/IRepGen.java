@@ -15,7 +15,7 @@ public interface IRepGen<G> {
 
 	public void atualizar(G g) throws Exception;
 
-	public void remover( G g) throws Exception;
+	public void remover(G g) throws Exception;
 
 	public G procurar(String chave) throws Exception;
 }

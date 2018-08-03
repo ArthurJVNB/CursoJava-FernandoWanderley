@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.fwinternetbanking.model.contas;
+package br.com.fwinternetbanking.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-import br.com.fwinternetbanking.model.clientes.Cliente;
+import br.com.fwinternetbanking.model.Cliente;
 
 /**
  *

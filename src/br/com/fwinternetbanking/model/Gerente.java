@@ -1,10 +1,12 @@
-package br.com.fwinternetbanking.model.clientes;
+package br.com.fwinternetbanking.model;
 
 import java.util.Collection;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+
+import br.com.fwinternetbanking.model.Cliente;
 
 @Entity
 @Table (name = "TB_GERENTE")

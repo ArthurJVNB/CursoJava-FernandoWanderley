@@ -1,4 +1,4 @@
-package br.com.fwinternetbanking.model.clientes;
+package br.com.fwinternetbanking.model;
 
 public enum TipoCliente {
 	Standard, Class, Vip;

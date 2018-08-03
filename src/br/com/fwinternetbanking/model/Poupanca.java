@@ -1,9 +1,9 @@
-package br.com.fwinternetbanking.model.contas;
+package br.com.fwinternetbanking.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-import br.com.fwinternetbanking.model.clientes.Cliente;
+import br.com.fwinternetbanking.model.Cliente;
 
 @Entity
 @Table (name = "tb_conta")

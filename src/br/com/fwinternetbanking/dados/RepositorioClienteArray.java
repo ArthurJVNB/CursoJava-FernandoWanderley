@@ -5,8 +5,11 @@
  */
 package br.com.fwinternetbanking.dados;
 
+import br.com.fwinternetbanking.exceptions.ArrayCheioException;
+import br.com.fwinternetbanking.exceptions.ClienteExisteException;
+import br.com.fwinternetbanking.exceptions.ClienteNaoEncontradoException;
+import br.com.fwinternetbanking.model.Cliente;
 import br.com.fwinternetbanking.model.IRepCliente;
-import br.com.fwinternetbanking.model.clientes.Cliente;
 
 /**
  *
@@ -14,74 +17,84 @@ import br.com.fwinternetbanking.model.clientes.Cliente;
  */
 public class RepositorioClienteArray implements IRepCliente {
 
-    private Cliente[] clientes;
-    private int indice;
-    private final static int tamCache = 100;
+	private Cliente[] clientes;
+	private int indice;
+	private final static int tamCache = 100;
 
-    public RepositorioClienteArray() {
-        indice = 0;
-        clientes = new Cliente[tamCache];
-    }
+	public RepositorioClienteArray() {
+		indice = 0;
+		clientes = new Cliente[tamCache];
+	}
 
-    public void inserir(Cliente c) {
-        clientes[indice] = c;
-        indice++;
-    }
+	public void inserir(Cliente c) throws Exception {
+		try {
+			if (!existe(c.getCpf())) {
+				clientes[indice] = c;
+				indice++;
+			} else {
+				throw new ClienteExisteException();
+			}
+		} catch (ArrayIndexOutOfBoundsException e) {
 
-    private int procurarIndice(String cpf) {
-        int i = 0;
-        int ind = -1;
+			throw new ArrayCheioException();
+		}
+	}
 
-        for (Cliente c : clientes) {
-            if (c.getCpf().equals(cpf)) {
-                ind = i;
-                break;
-            }
-            i++;
-        }
-        return ind;
-    }
+	private int procurarIndice(String cpf) {
+		int i = 0;
+		int ind = -1;
 
-    public boolean existe(String cpf) {
+		for (Cliente c : clientes) {
+			if (c.getCpf().equals(cpf)) {
+				ind = i;
+				break;
+			}
+			i++;
+		}
+		return ind;
+	}
 
-        boolean resp = false;
-        int i = this.procurarIndice(cpf);
-        if (i != -1) {
-            resp = true;
-        }
-        return resp;
-    }
+	public boolean existe(String cpf) {
 
-    public void atualizar(Cliente c) {
-        
-        int i = procurarIndice(c.getCpf());
-        if (i != -1) {
-            clientes[i] = c;
-        } else {
-            System.out.println("Cliente nao encontrado");
-        }
-    }
+		boolean resp = false;
+		int i = this.procurarIndice(cpf);
+		if (i != -1) {
+			resp = true;
+		}
+		return resp;
+	}
 
-    public Cliente procurar(String cpf) {
+	public void atualizar(Cliente c) throws Exception {
 
-        Cliente c = null;
-        if (existe(cpf)) {
-            int i = this.procurarIndice(cpf);
-            c = clientes[i];
-        } else {
-            System.out.println("Cliente nao encontrado");
-        }
-        return c;
-    }
+		int i = procurarIndice(c.getCpf());
+		if (i != -1) {
+			clientes[i] = c;
+		} else {
+			throw new ClienteNaoEncontradoException();
+		}
+	}
 
-    public void remover(Cliente c) {
-        if (existe(c.getCpf())) {
-            int i = this.procurarIndice(c.getCpf());
-            clientes[i] = clientes[indice - 1];
-            clientes[indice - 1] = null;
-            indice = indice - 1;
-        } else {
-            System.out.println("Cliente nao encontrado");
-        }
-    }
+	public Cliente procurar(String cpf) throws Exception {
+		Cliente c = null;
+
+		if (existe(cpf)) {
+			int i = this.procurarIndice(cpf);
+			c = clientes[i];
+		} else {
+			throw new ClienteNaoEncontradoException();
+		}
+
+		return c;
+	}
+
+	public void remover(Cliente c) throws Exception {
+		if (existe(c.getCpf())) {
+			int i = this.procurarIndice(c.getCpf());
+			clientes[i] = clientes[indice - 1];
+			clientes[indice - 1] = null;
+			indice = indice - 1;
+		} else {
+			throw new ClienteNaoEncontradoException();
+		}
+	}
 }
