@@ -5,8 +5,6 @@
  */
 package br.com.fwinternetbanking.model;
 
-import br.com.fwinternetbanking.model.clientes.Cliente;
-
 /**
  *
  * @author Euller
