@@ -4,8 +4,8 @@ import org.hibernate.Session;
 
 import br.com.fwinternetbanking.exceptions.ContaExisteException;
 import br.com.fwinternetbanking.exceptions.ContaNaoEncontradaException;
-import br.com.fwinternetbanking.model.ContaAbstrata;
 import br.com.fwinternetbanking.model.IRepConta;
+import br.com.fwinternetbanking.model.contas.ContaAbstrata;
 import br.com.fwinternetbanking.model.util.HibernateSessionFactory;
 
 public class RepositorioContaHibernate implements IRepConta {

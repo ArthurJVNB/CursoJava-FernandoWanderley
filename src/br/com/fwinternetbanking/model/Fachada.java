@@ -6,6 +6,9 @@
 package br.com.fwinternetbanking.model;
 import br.com.fwinternetbanking.dados.RepositorioClienteArray;
 import br.com.fwinternetbanking.dados.RepositorioContasArray;
+import br.com.fwinternetbanking.model.clientes.Cliente;
+import br.com.fwinternetbanking.model.contas.Conta;
+import br.com.fwinternetbanking.model.contas.ContaAbstrata;
 /**
  *
  * @author Euller

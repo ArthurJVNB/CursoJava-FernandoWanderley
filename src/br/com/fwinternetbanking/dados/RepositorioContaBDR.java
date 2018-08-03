@@ -6,10 +6,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import br.com.fwinternetbanking.model.Cliente;
-import br.com.fwinternetbanking.model.ContaAbstrata;
 import br.com.fwinternetbanking.model.FactoryContas;
 import br.com.fwinternetbanking.model.IRepGen;
+import br.com.fwinternetbanking.model.clientes.Cliente;
+import br.com.fwinternetbanking.model.contas.ContaAbstrata;
 import br.com.fwinternetbanking.model.util.JDBCConnectionUtil;
 
 public class RepositorioContaBDR implements IRepGen<ContaAbstrata> {
@@ -115,7 +115,7 @@ public class RepositorioContaBDR implements IRepGen<ContaAbstrata> {
 
 					Cliente cliente = procurarCliente(clienteCpf);
 
-					conta = factoryContas.getTipoConta(tipoInt, saldo, numero, cliente);
+					conta = factoryContas.getTipoConta(tipoInt);
 
 				}
 			}

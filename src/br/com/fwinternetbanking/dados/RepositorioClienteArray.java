@@ -5,8 +5,8 @@
  */
 package br.com.fwinternetbanking.dados;
 
-import br.com.fwinternetbanking.model.Cliente;
 import br.com.fwinternetbanking.model.IRepCliente;
+import br.com.fwinternetbanking.model.clientes.Cliente;
 
 /**
  *

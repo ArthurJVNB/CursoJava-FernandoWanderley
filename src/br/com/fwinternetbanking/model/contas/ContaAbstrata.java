@@ -1,4 +1,4 @@
-package br.com.fwinternetbanking.model;
+package br.com.fwinternetbanking.model.contas;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,6 +7,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import br.com.fwinternetbanking.model.EntidadeGen;
+import br.com.fwinternetbanking.model.clientes.Cliente;
 
 
 @Entity

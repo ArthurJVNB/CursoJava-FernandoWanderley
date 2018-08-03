@@ -3,24 +3,53 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.fwinternetbanking.model;
+package br.com.fwinternetbanking.model.clientes;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  *
  * @author Euller
  */
+
+@Entity
+@Table (name = "TB_ENDERECO")
 public class Endereco {
 
+	@Id
+	@Column (name = "TB_CLIENTE_CPF")
+	private String clienteCpf;
+	
+	@Column (name = "CEP")
 	private String cep;
+	
+	@Column (name = "NUMERO")
 	private String numero;
+	
+	@Column (name = "COMPLEMENTO")
 	private String Complemento;
 
-	public Endereco(String cep, String numero, String Complemento) {
+	public Endereco() {}
+	public Endereco(String cpf, String cep, String numero, String Complemento) {
+		this.clienteCpf = cpf;
 		this.cep = cep;
 		this.numero = numero;
 		this.Complemento = Complemento;
 	}
+	
+	
 
+	public String getClienteCpf() {
+		return clienteCpf;
+	}
+	
+	public void setClienteCpf(String clienteCpf) {
+		this.clienteCpf = clienteCpf;
+	}
+	
 	public String getCep() {
 		return cep;
 	}
