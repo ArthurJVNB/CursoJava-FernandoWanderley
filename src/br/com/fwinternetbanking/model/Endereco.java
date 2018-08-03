@@ -5,6 +5,8 @@
  */
 package br.com.fwinternetbanking.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -17,7 +19,12 @@ import javax.persistence.Table;
 
 @Entity
 @Table (name = "TB_ENDERECO")
-public class Endereco {
+public class Endereco implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5936450098772100771L;
 
 	@Override
 	public String toString() {

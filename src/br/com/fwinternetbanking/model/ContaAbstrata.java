@@ -1,5 +1,7 @@
 package br.com.fwinternetbanking.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -14,7 +16,12 @@ import br.com.fwinternetbanking.model.EntidadeGen;
 
 @Entity
 @Table(name = "TB_CONTA")
-public abstract class ContaAbstrata extends EntidadeGen {
+public abstract class ContaAbstrata extends EntidadeGen implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2010745366822572194L;
 
 	@Id
 	@Column(name = "NUMERO")

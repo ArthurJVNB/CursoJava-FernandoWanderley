@@ -10,7 +10,12 @@ import br.com.fwinternetbanking.model.Cliente;
 @Table (name = "tb_conta")
 public class Conta extends ContaAbstrata {
 	
-    // CONSTRUTORES
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 5340663626442662192L;
+
+	// CONSTRUTORES
 	public Conta() {}
     public Conta(String numero, double saldo, Cliente cliente, TipoConta tipo) {
         super(numero, saldo, cliente, tipo);

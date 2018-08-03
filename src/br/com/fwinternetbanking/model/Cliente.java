@@ -1,5 +1,7 @@
 package br.com.fwinternetbanking.model;
 
+import java.io.Serializable;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -22,7 +24,12 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "TB_CONTA")
-public class Cliente implements Comparable<Cliente> {
+public class Cliente extends EntidadeGen implements Comparable<Cliente>, Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5485266271521636961L;
 
 	@Id
 	@ManyToMany(targetEntity = Gerente.class)
@@ -34,9 +41,6 @@ public class Cliente implements Comparable<Cliente> {
 	@JoinColumn(name = "NOME")
 	private String nome;
 
-	// NAO VAI SER GUARDADO!
-	// TODO talvez seja melhor retirar esse atributo ---Arthur: dia 2018.07.25, às
-	// 16:28h
 	private TipoCliente tipo;
 
 	@OneToOne(cascade = CascadeType.ALL)
@@ -47,7 +51,7 @@ public class Cliente implements Comparable<Cliente> {
 	}
 
 	public Cliente(String cpf, String nome, TipoCliente tipo, String cep, String numero, String complemento) {
-		super();
+		super(cpf);
 		this.cpf = cpf;
 		this.nome = nome;
 		this.tipo = tipo;

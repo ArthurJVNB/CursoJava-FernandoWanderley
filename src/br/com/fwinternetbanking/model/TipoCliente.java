@@ -1,5 +1,7 @@
 package br.com.fwinternetbanking.model;
 
-public enum TipoCliente {
+import java.io.Serializable;
+
+public enum TipoCliente implements Serializable {
 	Standard, Class, Vip;
 }

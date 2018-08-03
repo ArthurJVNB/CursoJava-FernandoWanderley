@@ -10,7 +10,7 @@ import br.com.fwinternetbanking.model.Cliente;
 
 @Entity
 @Table (name = "TB_GERENTE")
-public class Gerente {
+public class Gerente extends EntidadeGen {
 	
 	private String nome;
 	private String fone;
@@ -21,6 +21,7 @@ public class Gerente {
 	private Collection<Cliente> clientes;
 
 	public Gerente(String nome, String fone, String celular, String email) {
+		super(nome);
 		this.nome = nome;
 		this.fone = fone;
 		this.celular = celular;
@@ -59,4 +60,7 @@ public class Gerente {
 		this.email = email;
 	}
 
+	public String getId() {
+		return super.getId();
+	}
 }
