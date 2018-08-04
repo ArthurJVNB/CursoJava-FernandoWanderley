@@ -19,7 +19,11 @@ import br.com.fwinternetbanking.model.Cliente;
 @Table (name = "tb_conta")
 public class ContaBonificada extends Conta {
     
-    private double bonus;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 8788974366504601216L;
+	private double bonus;
     
     // CONSTRUTORES
     public ContaBonificada() {}

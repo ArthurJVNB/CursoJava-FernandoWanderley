@@ -8,6 +8,10 @@ import br.com.fwinternetbanking.model.Cliente;
 @Entity
 @Table (name = "tb_conta")
 public class Poupanca extends Conta {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -705590873561243732L;
 	private static double TAXA_JUROS = 0.01; // 1%
 
 	// CONSTRUTORES

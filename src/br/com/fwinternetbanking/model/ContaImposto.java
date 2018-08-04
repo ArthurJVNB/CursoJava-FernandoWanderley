@@ -10,6 +10,10 @@ import br.com.fwinternetbanking.model.Cliente;
 @Table(name = "tb_conta")
 public class ContaImposto extends ContaAbstrata {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4501582512564073634L;
 	private static double TAXA_IMPOSTO = 0.01; // 1%
 
 	public ContaImposto() {

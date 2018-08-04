@@ -1,6 +1,8 @@
 package br.com.fwinternetbanking.model;
 
-public enum TipoConta {
+import java.io.Serializable;
+
+public enum TipoConta implements Serializable {
 	ContaImposto, ContaBonificada, ContaPoupanca;
 
 }
