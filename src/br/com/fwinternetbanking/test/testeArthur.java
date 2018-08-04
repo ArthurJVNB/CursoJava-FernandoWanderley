@@ -8,6 +8,10 @@ import br.com.fwinternetbanking.model.*;
 
 public class testeArthur {
 	public static void main(String[] args) {
+		
+	}
+	
+	public static void usarContaMapMaisProfundo() {
 		RepositorioContaMap repoConta = new RepositorioContaMap();
 		
 		Cliente cliente = new Cliente("098", "arthur", TipoCliente.Vip, "500", "112", "bloco b");
@@ -48,12 +52,27 @@ public class testeArthur {
 		
 		conta = new ContaImposto("222", 900, cliente, TipoConta.ContaImposto);
 		repoConta.inserir(conta);
-		System.out.println(repoConta.procurar("222"));
+		System.out.println("Busca de conta errada: " + repoConta.procurar("222"));
 		conta.setNumero("333");
 		repoConta.atualizar(conta);
-		System.out.println(repoConta.procurar("333"));
+		System.out.println("Após correção do numero de conta, mas apenas atualizando sem nunca ter sido adicionado: " + repoConta.procurar("333"));
 		repoConta.inserir(conta);
-		System.out.println(repoConta.procurar("333"));
+		System.out.println("Agora a ContaImposto 333 foi adicionada ao repositório HashMap: " + repoConta.procurar("333"));
+		
+		try {
+			System.out.println(repoConta.procurar("333").getSaldo());
+			((ContaImposto) conta).debitar(100);
+			repoConta.atualizar(conta);
+			System.out.println(repoConta.procurar("333").getSaldo());
+			conta.debitar(100);
+			repoConta.atualizar(conta);
+			System.out.println(repoConta.procurar("333").getSaldo());
+			//conta.debitar(1000);
+			repoConta.atualizar(conta);
+			System.out.println(repoConta.procurar("333").getSaldo());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public static void usarContaMap() {
