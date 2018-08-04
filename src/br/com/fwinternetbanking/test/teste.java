@@ -1,4 +1,13 @@
-package br.com.fwinternetbanking.model;
+package br.com.fwinternetbanking.test;
+
+import br.com.fwinternetbanking.model.Cliente;
+import br.com.fwinternetbanking.model.ContaAbstrata;
+import br.com.fwinternetbanking.model.ContaBonificada;
+import br.com.fwinternetbanking.model.ContaImposto;
+import br.com.fwinternetbanking.model.Fachada;
+import br.com.fwinternetbanking.model.Poupanca;
+import br.com.fwinternetbanking.model.TipoCliente;
+import br.com.fwinternetbanking.model.TipoConta;
 
 public class teste {
 	public static void main(String[] args) throws Exception {
