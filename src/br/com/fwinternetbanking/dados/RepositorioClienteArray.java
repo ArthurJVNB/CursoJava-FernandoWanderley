@@ -28,7 +28,7 @@ public class RepositorioClienteArray implements IRepCliente {
 
 	public void inserir(Cliente c) throws Exception {
 		try {
-			if (!existe(c.getCpf())) {
+			if (existe(c.getCpf()) == false) {
 				clientes[indice] = c;
 				indice++;
 			} else {
@@ -44,12 +44,18 @@ public class RepositorioClienteArray implements IRepCliente {
 		int i = 0;
 		int ind = -1;
 
-		for (Cliente c : clientes) {
-			if (c.getCpf().equals(cpf)) {
-				ind = i;
-				break;
+		if (clientes != null) {
+			for (Cliente c : clientes) {
+
+				if (c == null) {
+					break;
+				} else if (c.getCpf().equals(cpf)) {
+					ind = i;
+					break;
+				}
+
+				i++;
 			}
-			i++;
 		}
 		return ind;
 	}
@@ -75,16 +81,15 @@ public class RepositorioClienteArray implements IRepCliente {
 	}
 
 	public Cliente procurar(String cpf) throws Exception {
-		Cliente c = null;
+		Cliente c;
 
 		if (existe(cpf)) {
 			int i = this.procurarIndice(cpf);
 			c = clientes[i];
+			return c;
 		} else {
 			throw new ClienteNaoEncontradoException();
 		}
-
-		return c;
 	}
 
 	public void remover(Cliente c) throws Exception {
@@ -97,4 +102,5 @@ public class RepositorioClienteArray implements IRepCliente {
 			throw new ClienteNaoEncontradoException();
 		}
 	}
+
 }

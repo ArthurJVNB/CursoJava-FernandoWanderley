@@ -20,7 +20,7 @@ public class RepositorioContasArray implements IRepConta {
 	@Override
 	public void inserir(ContaAbstrata c) throws Exception {
 		try {
-			if (!existe(c.getNumero())) {
+			if (existe(c.getNumero()) == false) {
 				contas[indice] = c;
 				indice++;
 			} else {
@@ -60,12 +60,17 @@ public class RepositorioContasArray implements IRepConta {
 		int i = 0;
 		int ind = -1;
 
-		for (ContaAbstrata c : contas) {
-			if (c.getNumero().equals(numeroConta)) {
-				ind = i;
-				break;
+		if (contas != null) {
+			for (ContaAbstrata c : contas) {
+
+				if (c == null) {
+					break;
+				} else if (c.getNumero().equals(numeroConta)) {
+					ind = i;
+					break;
+				}
+				i++;
 			}
-			i++;
 		}
 		return ind;
 	}
@@ -81,16 +86,16 @@ public class RepositorioContasArray implements IRepConta {
 
 	@Override
 	public ContaAbstrata procurar(String numeroConta) throws Exception {
-		ContaAbstrata c = null;
+		ContaAbstrata c;
 
 		if (existe(numeroConta)) {
 			int i = this.procurarIndice(numeroConta);
 			c = contas[i];
+			return c;
 		} else {
 			throw new ContaNaoEncontradaException();
 		}
 
-		return c;
 	}
 
 }
