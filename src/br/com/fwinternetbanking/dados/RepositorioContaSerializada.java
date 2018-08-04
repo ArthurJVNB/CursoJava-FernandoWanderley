@@ -65,24 +65,14 @@ public class RepositorioContaSerializada implements IRepConta {
 	}
 
 	@Override
-	public ContaAbstrata procurar(String chave) throws Exception {
+	public ContaAbstrata procurar(String numero) throws Exception {
 		sincronizarRepositorio();
-		ContaAbstrata resultado = null;
-		
-		resultado = contas.get(chave);
-		
-		return resultado;
+		return contas.get(numero);
 	}
 
 	private boolean existe(ContaAbstrata conta) throws Exception {
 		sincronizarRepositorio();
-		boolean resultado = false;
-		
-		if (contas.containsKey(conta.getId())) {
-			resultado = true;
-		}
-		
-		return resultado;
+		return contas.containsKey(conta.getId());
 	}
 	
 	private void gravarRepositorio(Map<String, ContaAbstrata> contas) throws Exception {
